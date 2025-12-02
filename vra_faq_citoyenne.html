@@ -2,88 +2,237 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>FAQ citoyenne – VRA</title>
+  <title>FAQ citoyenne – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+  .meta {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-FAQ – Volontariat de Retraite Active (VRA)
+  <div class="page">
 
-1. Le VRA, c’est quoi exactement ?
-Un engagement volontaire de 12 à 24 mois pour les personnes de 62 ans et plus, dans des missions utiles au territoire : soutien aux mairies, hôpitaux, écoles, personnes vulnérables, etc.
+    <header>
+      <div class="tagline">
+        <span class="icon">❓</span>
+        Foire aux questions
+      </div>
+      <h1>FAQ citoyenne – Volontariat de Retraite Active</h1>
+      <p class="lead">
+        Cette FAQ répond aux principales questions sur le VRA&nbsp;: à quoi il sert, qui peut y participer, ce qu’il apporte
+        aux volontaires et au pays, et comment il s’articule avec les services publics.
+      </p>
+    </header>
 
-2. Est-ce obligatoire ?
-Non. C’est 100 % volontaire. Aucune pression, aucune obligation, aucune contrainte.
+    <section class="section">
+      <h2>1. Le VRA, c’est quoi exactement&nbsp;?</h2>
+      <p>
+        Le Volontariat de Retraite Active est un engagement volontaire de 12 à 24 mois pour les personnes de 62 ans et plus,
+        dans des missions utiles au territoire&nbsp;: soutien aux mairies, hôpitaux, écoles, personnes vulnérables, etc.
+      </p>
+    </section>
 
-3. Est-ce un travail déguisé ?
-Non. Le VRA ne remplace pas un emploi salarié. La loi l’interdira explicitement. Les volontaires ne font pas le travail des agents publics.
+    <section class="section">
+      <h2>2. Est-ce obligatoire&nbsp;?</h2>
+      <p>
+        Non. Le VRA est <strong>100&nbsp;% volontaire</strong>. Aucune pression, aucune obligation, aucune contrainte ne peut être exercée
+        pour y participer.
+      </p>
+    </section>
 
-4. Est-ce militaire ?
-Pas du tout. Ce sont des missions civiles, non dangereuses.
+    <section class="section">
+      <h2>3. Est-ce un travail déguisé&nbsp;?</h2>
+      <p>
+        Non. Le VRA ne remplace pas un emploi salarié. La loi l’interdit explicitement. Les volontaires ne font pas le travail des
+        agents publics&nbsp;: ils apportent un soutien complémentaire.
+      </p>
+    </section>
 
-5. Quels types de missions ?
-- Aide aux mairies en cas de crise
-- Soutien aux hôpitaux et écoles (accueil, orientation)
-- Aide aux personnes vulnérables
-- Aide numérique
-- Lutte contre la désinformation
-- Exercices ORSEC
-- Transmission des compétences
+    <section class="section">
+      <h2>4. Est-ce militaire&nbsp;?</h2>
+      <p>
+        Pas du tout. Ce sont des <strong>missions civiles</strong>, non dangereuses. Le VRA ne relève ni de l’armée, ni de la police.
+      </p>
+    </section>
 
-6. Qui peut participer ?
-Toute personne :
-- de 62 ans ou plus,
-- en bonne santé,
-- volontaire,
-- n’ayant pas encore une retraite à taux plein.
+    <section class="section">
+      <h2>5. Quels types de missions&nbsp;?</h2>
+      <ul>
+        <li>aide aux mairies en cas de crise ;</li>
+        <li>soutien aux hôpitaux et écoles (accueil, orientation, logistique non médicale) ;</li>
+        <li>aide aux personnes vulnérables ;</li>
+        <li>aide numérique ;</li>
+        <li>participation à la lutte contre la désinformation ;</li>
+        <li>participation à des exercices ORSEC ;</li>
+        <li>transmission de compétences.</li>
+      </ul>
+    </section>
 
-7. Quels avantages pour le volontaire ?
-- Indemnité mensuelle
-- Validation de trimestres retraite
-- Formation gratuite
-- Protection accident
-- Reconnaissance officielle
-- Utilité sociale forte
-- Transition douce vers la retraite
+    <section class="section">
+      <h2>6. Qui peut participer&nbsp;?</h2>
+      <p>
+        Toute personne&nbsp;:
+      </p>
+      <ul>
+        <li>de 62 ans ou plus,</li>
+        <li>en bonne santé,</li>
+        <li>volontaire,</li>
+        <li>n’ayant pas encore une retraite à taux plein.</li>
+      </ul>
+    </section>
 
-8. Est-ce risqué ?
-Non. Les missions sont non dangereuses : ni maintien de l’ordre, ni intervention en zone hostile.
+    <section class="section">
+      <h2>7. Quels avantages pour le volontaire&nbsp;?</h2>
+      <ul>
+        <li>une indemnité mensuelle ;</li>
+        <li>la validation de trimestres de retraite (dans une limite fixée par la loi) ;</li>
+        <li>des formations gratuites ;</li>
+        <li>une protection en cas d’accident ;</li>
+        <li>une reconnaissance officielle ;</li>
+        <li>une utilité sociale forte ;</li>
+        <li>une transition douce vers la retraite.</li>
+      </ul>
+    </section>
 
-9. Est-ce qu’on peut arrêter ?
-Oui, à tout moment, avec un préavis raisonnable (par exemple un mois).
+    <section class="section">
+      <h2>8. Est-ce risqué&nbsp;?</h2>
+      <p>
+        Non. Les missions sont <strong>non dangereuses</strong>&nbsp;: il ne s’agit ni de maintien de l’ordre, ni d’intervention en zone hostile.
+      </p>
+    </section>
 
-10. Qui organise ?
-- Une agence nationale (ANRCT)
-- Les préfectures
-- Les mairies
-- Des associations locales agréées
+    <section class="section">
+      <h2>9. Peut-on arrêter&nbsp;?</h2>
+      <p>
+        Oui. Le volontaire peut mettre fin à son engagement à tout moment, avec un préavis raisonnable (par exemple un mois),
+        le temps de réorganiser la mission.
+      </p>
+    </section>
 
-11. Pourquoi le faire ?
-Pour être utile. Pour renforcer son territoire. Pour créer du lien social. Pour apprendre. Pour transmettre. Pour mieux préparer la France aux crises futures.
+    <section class="section">
+      <h2>10. Qui organise le VRA&nbsp;?</h2>
+      <p>
+        Le VRA est organisé par&nbsp;:
+      </p>
+      <ul>
+        <li>une agence nationale dédiée (ANRCT) ;</li>
+        <li>les préfectures au niveau départemental ;</li>
+        <li>les mairies et intercommunalités ;</li>
+        <li>des associations locales agréées pour certaines missions.</li>
+      </ul>
+    </section>
 
-12. Combien de volontaires attendus ?
-À terme : 150 000 à 200 000 volontaires formés. La plus grande force civile de résilience d’Europe.
+    <section class="section">
+      <h2>11. Pourquoi le faire&nbsp;?</h2>
+      <p>
+        Pour être utile. Pour renforcer son territoire. Pour créer du lien social. Pour apprendre. Pour transmettre. Pour mieux préparer
+        la France aux crises futures, tout en construisant une transition active vers la retraite.
+      </p>
+    </section>
 
-13. Pourquoi maintenant ?
-Parce que nous entrons dans une période d’incertitude majeure, et que la résilience nationale est devenue un besoin vital.
-</pre>
+    <section class="section">
+      <h2>12. Combien de volontaires attendus&nbsp;?</h2>
+      <p>
+        À terme, l’objectif est de former <strong>150&nbsp;000 à 200&nbsp;000 volontaires</strong>, ce qui constituerait la plus grande force civile de résilience
+        d’Europe.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>13. Pourquoi maintenant&nbsp;?</h2>
+      <p>
+        Parce que nous entrons dans une période d’incertitude majeure, et que la résilience nationale est devenue un besoin vital.
+        Le VRA est une réponse concrète, humaine et structurée à ce défi.
+      </p>
+    </section>
+
+  </div>
 </body>
 </html>

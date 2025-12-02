@@ -2,82 +2,189 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Feuille de route – VRA</title>
+  <title>Feuille de route – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-Feuille de route de concrétisation – Volontariat de Retraite Active (VRA)
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">🧭</span>
+        Feuille de route
+      </div>
+      <h1>Feuille de route de concrétisation du VRA</h1>
+      <p class="lead">
+        Les grandes phases pour passer de l’idée au dispositif réel : amorçage, conceptualisation, prototypage, légalisation, généralisation.
+      </p>
+    </header>
 
-Phase 0 – Amorçage (où nous sommes)
-- Clarifier l’intention politique et morale
-- Définir les grands principes : volontariat, missions civiles, non-substitution d’emploi
-- Produire les premiers documents : livret, note stratégique, fiche cabinet
-→ Résultat : concept stabilisé et communicable
+    <section class="section">
+      <h2>Phase 0 – Amorçage (où nous sommes)</h2>
+      <p>
+        Clarifier l’intention politique et morale. Définir les grands principes : volontariat, missions civiles,
+        non-substitution d’emploi. Produire les premiers documents : livret, note stratégique, fiche cabinet.
+      </p>
+      <p><strong>Résultat :</strong> concept stabilisé et communicable.</p>
+    </section>
 
-Phase 1 – Conceptualisation consolidée
-Objectifs :
-- Finaliser le socle conceptuel et stratégique
-- Préciser missions, statut, gouvernance, coûts indicatifs
-Livrables :
-- Note stratégique complète
-- Fiche cabinet
-- Première esquisse juridique
-Critère de passage :
-- Documents prêts à circuler auprès d’experts et de décideurs
+    <section class="section">
+      <h2>Phase 1 – Conceptualisation consolidée</h2>
+      <h3>Objectifs</h3>
+      <ul>
+        <li>finaliser le socle conceptuel et stratégique ;</li>
+        <li>préciser missions, statut, gouvernance, coûts indicatifs.</li>
+      </ul>
+      <h3>Livrables</h3>
+      <ul>
+        <li>note stratégique complète ;</li>
+        <li>fiche cabinet ;</li>
+        <li>première esquisse juridique.</li>
+      </ul>
+      <h3>Critère de passage</h3>
+      <p>Documents prêts à circuler auprès d’experts et de décideurs.</p>
+    </section>
 
-Phase 2 – Prototypage & coalition d’acteurs
-Objectifs :
-- Tester le VRA dans quelques territoires
-- Co-construire avec mairies, préfectures, hôpitaux, associations
-Livrables :
-- Expérimentations locales (micro-missions)
-- Retours d’expérience
-- Catalogue de missions types
-Critères :
-- Utilité démontrée
-- Acceptabilité par les acteurs de terrain
+    <section class="section">
+      <h2>Phase 2 – Prototypage &amp; coalition d’acteurs</h2>
+      <h3>Objectifs</h3>
+      <ul>
+        <li>tester le VRA dans quelques territoires ;</li>
+        <li>co-construire avec mairies, préfectures, hôpitaux, associations.</li>
+      </ul>
+      <h3>Livrables</h3>
+      <ul>
+        <li>expérimentations locales (micro-missions) ;</li>
+        <li>retours d’expérience ;</li>
+        <li>catalogue de missions types.</li>
+      </ul>
+      <h3>Critères</h3>
+      <ul>
+        <li>utilité démontrée ;</li>
+        <li>acceptabilité par les acteurs de terrain.</li>
+      </ul>
+    </section>
 
-Phase 3 – Légalisation & déploiement progressif
-Objectifs :
-- Inscrire le VRA dans la loi
-- Créer l’Agence Nationale de la Résilience Civile et des Transitions (ANRCT)
-- Lancer un déploiement piloté
-Livrables :
-- Projet de loi et décrets
-- Plateforme nationale
-- Premiers recrutements à échelle significative
-Critères :
-- VRA opérationnel dans 10–20 territoires
+    <section class="section">
+      <h2>Phase 3 – Légalisation &amp; déploiement progressif</h2>
+      <h3>Objectifs</h3>
+      <ul>
+        <li>inscrire le VRA dans la loi ;</li>
+        <li>créer l’ANRCT ;</li>
+        <li>lancer un déploiement piloté.</li>
+      </ul>
+      <h3>Livrables</h3>
+      <ul>
+        <li>projet de loi et décrets ;</li>
+        <li>plateforme nationale ;</li>
+        <li>premiers recrutements à échelle significative.</li>
+      </ul>
+      <h3>Critères</h3>
+      <p>VRA opérationnel dans 10–20 territoires.</p>
+    </section>
 
-Phase 4 – Généralisation & intégration doctrinale
-Objectifs :
-- Étendre le VRA à l’ensemble du territoire
-- Intégrer le dispositif aux doctrines ORSEC, plans communaux de sauvegarde, etc.
-Livrables :
-- Plan de montée en puissance
-- Rapport annuel au Parlement
-- Ajustements fondés sur l’évaluation
-Critère de succès :
-- 150 000 à 200 000 volontaires formés et intégrés en 5 ans
-</pre>
+    <section class="section">
+      <h2>Phase 4 – Généralisation &amp; intégration doctrinale</h2>
+      <h3>Objectifs</h3>
+      <ul>
+        <li>étendre le VRA à l’ensemble du territoire ;</li>
+        <li>intégrer le dispositif aux doctrines ORSEC, plans communaux de sauvegarde, etc.</li>
+      </ul>
+      <h3>Livrables</h3>
+      <ul>
+        <li>plan de montée en puissance ;</li>
+        <li>rapport annuel au Parlement ;</li>
+        <li>ajustements fondés sur l’évaluation.</li>
+      </ul>
+      <h3>Critère de succès</h3>
+      <p>150&nbsp;000 à 200&nbsp;000 volontaires formés et intégrés en 5 ans.</p>
+    </section>
+
+  </div>
 </body>
 </html>

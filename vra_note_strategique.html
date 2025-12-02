@@ -2,104 +2,259 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Note stratégique – VRA</title>
+  <title>Note stratégique – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-NOTE STRATÉGIQUE – Volontariat de Retraite Active (VRA)
-Renforcer la résilience française en valorisant la transition vers la retraite
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">📘</span>
+        Note stratégique
+      </div>
+      <h1>Note stratégique – Volontariat de Retraite Active</h1>
+      <p class="lead">
+        Diagnostic, objectifs, principes, missions, gouvernance et déploiement : la vue d’ensemble du VRA comme outil de résilience nationale.
+      </p>
+    </header>
 
-1. Introduction
-La France est confrontée à des risques multiples : tensions géopolitiques, crises climatiques, cyberattaques, saturation des services publics. Dans le même temps, chaque année, environ 350 000 Français atteignent 62 ans et entrent dans une « zone grise » : trop tôt pour une retraite à taux plein, trop tard pour une carrière classique.
-Le Volontariat de Retraite Active (VRA) propose de transformer cette période en levier de résilience nationale.
+    <section class="section">
+      <h2>1. Introduction</h2>
+      <p>
+        La France est confrontée à des risques multiples : tensions géopolitiques, crises climatiques, cyberattaques,
+        saturation des services publics. Dans le même temps, chaque année, environ <strong>350&nbsp;000 Français atteignent 62 ans</strong>
+        et entrent dans une « zone grise » : trop tôt pour une retraite à taux plein, trop tard pour une carrière classique.
+      </p>
+      <p>
+        Le Volontariat de Retraite Active (VRA) propose de transformer cette période en <strong>levier de résilience nationale</strong>.
+      </p>
+    </section>
 
-2. Diagnostic
-2.1. Résilience insuffisante
-- Manque de bras pour gérer les crises
-- Maillage territorial incomplet
-- Services publics sous tension
+    <section class="section">
+      <h2>2. Diagnostic</h2>
+      <h3>2.1. Résilience insuffisante</h3>
+      <ul>
+        <li>manque de bras pour gérer les crises ;</li>
+        <li>maillage territorial incomplet ;</li>
+        <li>services publics sous tension.</li>
+      </ul>
 
-2.2. Transition démographique
-- Nombreux 62–65 ans épuisés par le travail
-- Désir d’être utile autrement
-- Capital d’expérience peu valorisé
+      <h3>2.2. Transition démographique</h3>
+      <ul>
+        <li>nombreux 62–65 ans épuisés par le travail ;</li>
+        <li>décrochage entre capacités physiques et exigences des postes ;</li>
+        <li>désir d’être utile autrement ;</li>
+        <li>capital d’expérience peu valorisé.</li>
+      </ul>
 
-2.3. Fragmentation institutionnelle
-- Service civique (jeunes), réserves diverses, bénévolat : dispositifs non coordonnés et incomplets pour la résilience civile.
+      <h3>2.3. Fragmentation institutionnelle</h3>
+      <p>
+        Le service civique, les différentes réserves (militaire, sécurité civile), le bénévolat constitué ou informel forment
+        un paysage riche mais fragmenté. <strong>Aucun dispositif ne mobilise spécifiquement les 62+</strong> dans une logique
+        structurée de résilience civile.
+      </p>
+    </section>
 
-3. Objectifs du VRA
-1) Renforcer la résilience française
-2) Fluidifier la fin de carrière
-3) Protéger symboliquement les jeunes générations
-4) Valoriser les compétences accumulées
-5) Consolider le pacte intergénérationnel
+    <section class="section">
+      <h2>3. Objectifs du VRA</h2>
+      <ul>
+        <li><strong>Renforcer la résilience française</strong> en créant une force civile nombreuse, formée et disponible.</li>
+        <li><strong>Fluidifier la fin de carrière</strong> en offrant une transition digne et utile.</li>
+        <li><strong>Protéger symboliquement les jeunes générations</strong> en assumant collectivement la résilience civile.</li>
+        <li><strong>Valoriser les compétences accumulées</strong> des seniors.</li>
+        <li><strong>Consolider le pacte intergénérationnel</strong> autour d’un projet positif.</li>
+      </ul>
+    </section>
 
-4. Principes du dispositif
-- Volontariat intégral
-- Missions civiles non dangereuses
-- Complémentarité, non-substitution à l’emploi salarié
-- Reconnaissance (statut, indemnité, droits retraite)
-- Utilité mesurable pour les territoires
+    <section class="section">
+      <h2>4. Principes du dispositif</h2>
+      <ul>
+        <li><strong>Volontariat intégral</strong> : aucun engagement imposé.</li>
+        <li><strong>Missions civiles non dangereuses</strong> : hors champ militaire et maintien de l’ordre.</li>
+        <li><strong>Complémentarité</strong> : non-substitution à l’emploi salarié.</li>
+        <li><strong>Reconnaissance</strong> : indemnité, validation de trimestres, statut clair.</li>
+        <li><strong>Utilité mesurable</strong> : impact concret sur les territoires.</li>
+      </ul>
+    </section>
 
-5. Types de missions
-A. Résilience civile territoriale
-B. Appui aux services publics
-C. Résilience numérique et lutte contre la désinformation
-D. Gestion de crise (exercices, soutien logistique, communication)
-E. Transmission de compétences (mentorat, documentation, tutorat)
+    <section class="section">
+      <h2>5. Types de missions</h2>
+      <h3>A. Résilience civile territoriale</h3>
+      <p>
+        Appui aux communes et préfectures : centres d’accueil, logistique, cartographie des fragilités, lien avec les
+        personnes vulnérables.
+      </p>
 
-6. Statut proposé
-- Conditions : ≥ 62 ans, volontaire, apte, pas encore à taux plein
-- Durée : 12 à 24 mois
-- Indemnité mensuelle
-- Validation de trimestres de retraite (limite fixée par décret)
-- Formation de base : secourisme, numérique, gestion de crise
-- Protection : accident, responsabilité, accompagnement
+      <h3>B. Appui aux services publics</h3>
+      <p>
+        Soutien non médical aux hôpitaux, non pédagogique aux écoles, appui aux structures médico-sociales et aux associations.
+      </p>
 
-7. Gouvernance
-- Création d'une Agence Nationale de la Résilience Civile et des Transitions (ANRCT)
-- Pilotage national, déclinaison préfectorale, mise en œuvre communale
-- Plateforme numérique pour les inscriptions, missions, formations et retours d’expérience
+      <h3>C. Résilience numérique et lutte contre la désinformation</h3>
+      <p>
+        Aide numérique, ambassadeurs d’hygiène informationnelle, relais de surveillance des grandes campagnes de désinformation.
+      </p>
 
-8. Déploiement
-- Phase pilote : 10–20 collectivités, 2 000 volontaires
-- Phase de montée en puissance (3 ans) : ~50 000 volontaires
-- Généralisation (5 ans) : 150 000 à 200 000 volontaires formés
+      <h3>D. Gestion de crise</h3>
+      <p>
+        Participation aux exercices ORSEC, soutien aux cellules de crise, communication avec la population.
+      </p>
 
-9. Impact attendu
-- Première force civile de résilience en Europe
-- Soulagement des services publics
-- Meilleure gestion des crises locales et nationales
-- Renforcement du lien citoyens–institutions
-- Protection symbolique des jeunes générations
+      <h3>E. Transmission de compétences</h3>
+      <p>
+        Mentorat, documentation de savoir-faire, tutorat de jeunes professionnels dans des secteurs critiques.
+      </p>
+    </section>
 
-10. Gardes-fous
-- Interdiction explicite de substituer un emploi
-- Missions non dangereuses
-- Comité éthique et évaluation annuelle
-- Neutralité politique et transparence
+    <section class="section">
+      <h2>6. Statut proposé</h2>
+      <ul>
+        <li>Conditions : ≥ 62 ans, volontaire, apte, pas encore à taux plein.</li>
+        <li>Durée : engagement de 12 à 24 mois.</li>
+        <li>Indemnité mensuelle versée par l’État.</li>
+        <li>Validation de trimestres retraite (plafond fixé par décret).</li>
+        <li>Formation de base : secourisme, numérique, gestion de crise, fonctionnement des services locaux.</li>
+        <li>Protection : accident, responsabilité, accompagnement.</li>
+      </ul>
+    </section>
 
-11. Conclusion
-Le VRA est une innovation institutionnelle à la fois sociale, stratégique et démocratique. Il transforme une période fragile en ressource civique majeure, au service de la résilience française.
-</pre>
+    <section class="section">
+      <h2>7. Gouvernance</h2>
+      <p>
+        La création d’une <strong>Agence Nationale de la Résilience Civile et des Transitions (ANRCT)</strong> est proposée. Elle pilote
+        le dispositif, coordonne les formations, finance les missions et assure l’articulation avec les politiques publiques existantes.
+      </p>
+      <p>
+        Les préfets sont responsables du déploiement territorial, les communes et intercommunalités de l’accueil et de la
+        définition précise des missions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>8. Déploiement proposé</h2>
+      <h3>Phase pilote</h3>
+      <p>10–20 collectivités volontaires, environ 2&nbsp;000 volontaires sur 12 mois.</p>
+      <h3>Montée en puissance (3 ans)</h3>
+      <p>Environ 50&nbsp;000 volontaires, intégrés aux plans communaux et départementaux de sauvegarde.</p>
+      <h3>Généralisation (5 ans)</h3>
+      <p>Objectif : 150&nbsp;000 à 200&nbsp;000 volontaires formés, première force civile de résilience en Europe.</p>
+    </section>
+
+    <section class="section">
+      <h2>9. Impact attendu</h2>
+      <ul>
+        <li>capacité accrue de gestion de crise ;</li>
+        <li>soulagement des services publics ;</li>
+        <li>amélioration de la continuité des services essentiels ;</li>
+        <li>renforcement du lien entre citoyens et institutions ;</li>
+        <li>protection symbolique des jeunes générations.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>10. Gardes-fous</h2>
+      <ul>
+        <li>interdiction explicite de substituer un emploi salarié ;</li>
+        <li>missions non dangereuses, clairement définies ;</li>
+        <li>comité éthique et évaluation annuelle ;</li>
+        <li>neutralité politique et transparence des données.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>11. Conclusion</h2>
+      <p>
+        Le VRA est une innovation institutionnelle sociale, stratégique et démocratique. Il transforme une période fragile en
+        ressource civique majeure, au service de la résilience française.
+      </p>
+    </section>
+
+  </div>
 </body>
 </html>

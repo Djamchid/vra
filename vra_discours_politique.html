@@ -2,55 +2,163 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Discours politique – VRA</title>
+  <title>Discours politique – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-Discours politique de présentation – Volontariat de Retraite Active (VRA)
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">🎙️</span>
+        Discours politique
+      </div>
+      <h1>Discours politique de présentation – VRA</h1>
+      <p class="lead">
+        Texte complet pour une prise de parole en hémicycle, conférence ou grande réunion de présentation du dispositif.
+      </p>
+    </header>
 
-Mesdames et Messieurs,
-Chers collègues,
-Chers concitoyens,
+    <section class="section">
+      <h2>Texte du discours</h2>
+      <p>
+        Mesdames et Messieurs,<br>
+        Chers collègues,<br>
+        Chers concitoyens,
+      </p>
+      <p>
+        Nous vivons une époque où les crises se succèdent, où les tensions géopolitiques montent, où le climat change,
+        où les services publics sont sous pression, où l’information se brouille. Face à cette réalité, une question simple
+        se pose : comment renforcer la résilience de notre pays sans affaiblir son harmonie sociale ?
+      </p>
+      <p>
+        Chaque année, plus de 350&nbsp;000 personnes atteignent 62 ans en France. Beaucoup ne peuvent pas encore prendre
+        leur retraite, mais n’ont plus la force ou l’envie de poursuivre un emploi devenu trop exigeant. Elles souhaitent
+        rester actives, mais autrement. Elles veulent continuer à être utiles.
+      </p>
+      <p>
+        C’est pour elles, et avec elles, que nous proposons de créer le <strong>Volontariat de Retraite Active</strong>, le VRA.
+      </p>
+      <p>
+        Le VRA, c’est un engagement civil, non militaire, volontaire, d’une durée de douze à vingt-quatre mois. Il permet à
+        celles et ceux qui sont à l’aube de la retraite de mettre leur temps, leur expérience et leur sens du collectif au
+        service de la résilience de notre pays.
+      </p>
+      <p>
+        Concrètement, que feront ces volontaires ? Ils aideront les mairies lors de crises locales, ils soutiendront les hôpitaux
+        et les écoles sur des tâches non médicales ou non pédagogiques, ils accompagneront les personnes les plus vulnérables,
+        ils contribueront à lutter contre la désinformation, ils participeront à des exercices de gestion de crise, ils
+        transmettront des compétences professionnelles précieuses.
+      </p>
+      <p>
+        Le VRA n’est ni une préretraite déguisée, ni une substitution d’emploi public, ni une réserve militaire. C’est un
+        dispositif civil, encadré, volontaire, avec une indemnité et une validation de trimestres pour la retraite, pensé pour
+        renforcer nos territoires.
+      </p>
+      <p>
+        Dans quelques années, ce sont 100&nbsp;000, puis 150&nbsp;000 volontaires formés qui pourront constituer la première force civile
+        de résilience en Europe. Une force calme, discrète, mais décisive lorsque le pays traverse des tempêtes.
+      </p>
+      <p>
+        Avec le VRA, nous faisons de la transition vers la retraite non plus une période subie, mais un moment de transmission et
+        d’engagement. Nous affirmons que chaque étape de la vie a un sens civique. Nous renforçons le lien entre citoyens et
+        institutions. Nous protégeons symboliquement les jeunes générations en assumant collectivement la responsabilité de la
+        résilience.
+      </p>
+      <p>
+        C’est une mesure de réalisme et de confiance. Confiance dans nos aînés, confiance dans nos territoires, confiance dans la
+        capacité de la France à inventer des réponses nouvelles aux défis de ce siècle.
+      </p>
+      <p>
+        Je vous remercie.
+      </p>
+    </section>
 
-Nous vivons une époque où les crises se succèdent, où les tensions géopolitiques montent, où le climat change, où les services publics sont sous pression, où l’information se brouille. Face à cette réalité, une question simple se pose : comment renforcer la résilience de notre pays sans affaiblir son harmonie sociale ?
-
-Chaque année, plus de 350 000 personnes atteignent 62 ans en France. Beaucoup ne peuvent pas encore prendre leur retraite, mais n’ont plus la force ou l’envie de poursuivre un emploi devenu trop exigeant. Elles souhaitent rester actives, mais autrement. Elles veulent continuer à être utiles.
-
-C’est pour elles, et avec elles, que nous proposons de créer le Volontariat de Retraite Active, le VRA.
-
-Le VRA, c’est un engagement civil, non militaire, volontaire, d’une durée de douze à vingt-quatre mois. Il permet à celles et ceux qui sont à l’aube de la retraite de mettre leur temps, leur expérience et leur sens du collectif au service de la résilience de notre pays.
-
-Concrètement, que feront ces volontaires ?
-Ils aideront les mairies lors de crises locales, ils soutiendront les hôpitaux et les écoles sur des tâches non médicales ou non pédagogiques, ils accompagneront les personnes les plus vulnérables, ils contribueront à lutter contre la désinformation, ils participeront à des exercices de gestion de crise, ils transmettront des compétences professionnelles précieuses.
-
-Le VRA n’est ni une préretraite déguisée, ni une substitution d’emploi public, ni une réserve militaire. C’est un dispositif civil, encadré, volontaire, avec une indemnité et une validation de trimestres pour la retraite, pensé pour renforcer nos territoires.
-
-Dans quelques années, ce sont 100 000, puis 150 000 volontaires formés qui pourront constituer la première force civile de résilience en Europe. Une force calme, discrète, mais décisive lorsque le pays traverse des tempêtes.
-
-Avec le VRA, nous faisons de la transition vers la retraite non plus une période subie, mais un moment de transmission et d’engagement. Nous affirmons que chaque étape de la vie a un sens civique. Nous renforçons le lien entre citoyens et institutions. Nous protégeons symboliquement les jeunes générations en assumant collectivement la responsabilité de la résilience.
-
-C’est une mesure de réalisme et de confiance. Confiance dans nos aînés, confiance dans nos territoires, confiance dans la capacité de la France à inventer des réponses nouvelles aux défis de ce siècle.
-
-Je vous remercie.
-</pre>
+  </div>
 </body>
 </html>

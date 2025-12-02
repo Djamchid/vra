@@ -2,81 +2,196 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Fiche cabinet – VRA</title>
+  <title>Fiche cabinet – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-FICHE SYNTHÉTIQUE – CABINET MINISTÉRIEL
-Volontariat de Retraite Active (VRA)
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">📄</span>
+        Fiche cabinet ministériel
+      </div>
+      <h1>Fiche synthétique – Volontariat de Retraite Active</h1>
+      <p class="lead">
+        Deux pages de synthèse pour présenter rapidement le dispositif à un membre de cabinet, un élu ou un responsable administratif.
+      </p>
+    </header>
 
-Objet
-Créer un statut civique volontaire pour les 62+ n’ayant pas encore une retraite à taux plein, afin de renforcer la résilience de la France et de valoriser la transition vers la retraite.
+    <section class="section">
+      <h2>Objet</h2>
+      <p>
+        Créer un statut civique volontaire pour les 62+ n’ayant pas encore une retraite à taux plein, afin de renforcer
+        la résilience de la France et de valoriser la transition vers la retraite.
+      </p>
+    </section>
 
-Constat
-- 350 000 nouveaux 62 ans par an, souvent en fin de carrière difficile.
-- Crises plus fréquentes (climat, cyber, sanitaire, social).
-- Services publics saturés, mairies et hôpitaux en tension.
-→ Potentiel inexploité : temps, expérience, disponibilité des seniors.
+    <section class="section">
+      <h2>Constat</h2>
+      <ul>
+        <li>350&nbsp;000 nouveaux 62 ans par an, souvent en fin de carrière difficile ;</li>
+        <li>crises plus fréquentes (climat, cyber, sanitaire, social) ;</li>
+        <li>services publics saturés, mairies et hôpitaux en tension ;</li>
+        <li>potentiel inexploité : temps, expérience, disponibilité des seniors.</li>
+      </ul>
+    </section>
 
-Principe du dispositif
-- Engagement volontaire de 12 à 24 mois
-- Missions civiles non dangereuses
-- Indemnité mensuelle
-- Validation de trimestres de retraite
-- Formations (secourisme, numérique, gestion de crise)
-- Protection juridique et assurantielle
+    <section class="section">
+      <h2>Principe du dispositif</h2>
+      <ul>
+        <li>engagement volontaire de 12 à 24 mois ;</li>
+        <li>missions civiles non dangereuses ;</li>
+        <li>indemnité mensuelle ;</li>
+        <li>validation de trimestres de retraite ;</li>
+        <li>formations (secourisme, numérique, gestion de crise) ;</li>
+        <li>protection juridique et assurantielle.</li>
+      </ul>
+    </section>
 
-Missions prioritaires
-1. Appui aux communes et préfectures
-2. Soutien aux hôpitaux et écoles
-3. Résilience numérique et lutte contre la désinformation
-4. Gestion de crise (exercices, communication, logistique)
-5. Transmission de compétences
+    <section class="section">
+      <h2>Missions prioritaires</h2>
+      <ul>
+        <li>appui aux communes et préfectures ;</li>
+        <li>soutien aux hôpitaux et écoles ;</li>
+        <li>résilience numérique et lutte contre la désinformation ;</li>
+        <li>gestion de crise (exercices, communication, logistique) ;</li>
+        <li>transmission de compétences.</li>
+      </ul>
+    </section>
 
-Statut et gouvernance
-- Conditions : ≥ 62 ans, volontaire, apte, pas encore à taux plein
-- Engagement : 12–24 mois
-- Gouvernance nationale : ANRCT
-- Mise en œuvre territoriale : préfectures, communes
+    <section class="section">
+      <h2>Statut et gouvernance</h2>
+      <ul>
+        <li>conditions : ≥ 62 ans, volontaire, apte, pas encore à taux plein ;</li>
+        <li>engagement : 12–24 mois ;</li>
+        <li>gouvernance nationale : ANRCT ;</li>
+        <li>mise en œuvre territoriale : préfectures, communes.</li>
+      </ul>
+    </section>
 
-Déploiement
-- Pilote : 2 000 volontaires (10–20 collectivités)
-- Montée en puissance : 50 000 volontaires en 3 ans
-- Généralisation : 150 000–200 000 volontaires en 5 ans
+    <section class="section">
+      <h2>Déploiement</h2>
+      <ul>
+        <li>pilote : 2&nbsp;000 volontaires (10–20 collectivités) ;</li>
+        <li>montée en puissance : 50&nbsp;000 volontaires en 3 ans ;</li>
+        <li>généralisation : 150&nbsp;000–200&nbsp;000 volontaires en 5 ans.</li>
+      </ul>
+    </section>
 
-Impact
-- Renforcement majeur de la résilience civile
-- Soulagement des services publics
-- Cohésion intergénérationnelle
-- Image d’une France innovante et solidaire
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>renforcement majeur de la résilience civile ;</li>
+        <li>soulagement des services publics ;</li>
+        <li>cohésion intergénérationnelle ;</li>
+        <li>image d’une France innovante et solidaire.</li>
+      </ul>
+    </section>
 
-Garde-fous
-- Volontariat intégral
-- Non-substitution d’emploi
-- Missions non dangereuses
-- Évaluation annuelle
+    <section class="section">
+      <h2>Garde-fous</h2>
+      <ul>
+        <li>volontariat intégral ;</li>
+        <li>non-substitution d’emploi ;</li>
+        <li>missions non dangereuses ;</li>
+        <li>évaluation annuelle.</li>
+      </ul>
+    </section>
 
-Conclusion
-Le VRA est une mesure transversale, peu coûteuse au regard de son impact, politiquement rassembleuse, répondant à un double besoin : résilience du pays et transition digne vers la retraite.
-</pre>
+    <section class="section">
+      <h2>Conclusion</h2>
+      <p>
+        Le VRA est une mesure transversale, peu coûteuse au regard de son impact, politiquement rassembleuse, répondant à un double
+        besoin : résilience du pays et transition digne vers la retraite.
+      </p>
+    </section>
+
+  </div>
 </body>
 </html>

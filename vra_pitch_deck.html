@@ -2,91 +2,195 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Pitch deck – VRA</title>
+  <title>Pitch deck – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-Pitch deck – Volontariat de Retraite Active (VRA)
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">📊</span>
+        Pitch deck
+      </div>
+      <h1>Trame de pitch – Volontariat de Retraite Active</h1>
+      <p class="lead">
+        Structure en 10–11 diapositives pour présenter le VRA lors de réunions, rencontres politiques ou échanges stratégiques.
+      </p>
+    </header>
 
-Slide 1 – Titre
-Volontariat de Retraite Active (VRA)
-Renforcer la résilience française
-Valoriser la transition vers la retraite
+    <section class="section">
+      <h2>Structure proposée du pitch</h2>
 
-Slide 2 – Le constat
-- 350 000 personnes atteignent 62 ans chaque année.
-- Zone grise : ni retraite confortable, ni carrière soutenable.
-- Crises plus fréquentes : climat, cyber, sanitaire, social.
-- Services publics et territoires en tension.
+      <h3>Slide 1 – Titre</h3>
+      <p>
+        <strong>Volontariat de Retraite Active (VRA)</strong><br>
+        Renforcer la résilience française<br>
+        Valoriser la transition vers la retraite
+      </p>
 
-Slide 3 – L’opportunité
-Transformer cette zone grise en force nationale de résilience :
-→ temps, expérience, disponibilité, maturité.
+      <h3>Slide 2 – Le constat</h3>
+      <ul>
+        <li>350&nbsp;000 personnes atteignent 62 ans chaque année ;</li>
+        <li>zone grise : ni retraite confortable, ni carrière soutenable ;</li>
+        <li>crises plus fréquentes : climat, cyber, sanitaire, social ;</li>
+        <li>services publics et territoires en tension.</li>
+      </ul>
 
-Slide 4 – Le VRA : définition
-- Engagement volontaire de 12–24 mois
-- Missions civiles non dangereuses
-- Indemnité + validation de trimestres
-- Formation et protection
-- Ciblé sur les 62+
+      <h3>Slide 3 – L’opportunité</h3>
+      <p>
+        Transformer cette zone grise en force nationale de résilience :
+        <strong>temps, expérience, disponibilité, maturité</strong>.
+      </p>
 
-Slide 5 – Missions principales
-1. Résilience civile territoriale
-2. Appui aux services publics
-3. Résilience numérique
-4. Gestion de crise
-5. Transmission de compétences
+      <h3>Slide 4 – Le VRA&nbsp;: définition</h3>
+      <ul>
+        <li>engagement volontaire de 12–24 mois ;</li>
+        <li>missions civiles non dangereuses ;</li>
+        <li>indemnité + validation de trimestres ;</li>
+        <li>formation et protection ;</li>
+        <li>ciblé sur les 62+.</li>
+      </ul>
 
-Slide 6 – Exemples concrets
-- Aide à une mairie en cas de tempête
-- Accueil et logistique à l’hôpital
-- Aide numérique aux personnes isolées
-- Participation à des exercices ORSEC
-- Mentorat de jeunes dans des secteurs critiques
+      <h3>Slide 5 – Missions principales</h3>
+      <ul>
+        <li>résilience civile territoriale ;</li>
+        <li>appui aux services publics ;</li>
+        <li>résilience numérique ;</li>
+        <li>gestion de crise ;</li>
+        <li>transmission de compétences.</li>
+      </ul>
 
-Slide 7 – Statut et gouvernance
-- Conditions : ≥ 62 ans, volontaire, apte
-- ANRCT au niveau national
-- Préfets et communes au niveau territorial
+      <h3>Slide 6 – Exemples concrets</h3>
+      <ul>
+        <li>aide à une mairie en cas de tempête ;</li>
+        <li>accueil et logistique à l’hôpital ;</li>
+        <li>aide numérique aux personnes isolées ;</li>
+        <li>participation à des exercices ORSEC ;</li>
+        <li>mentorat de jeunes dans des secteurs critiques.</li>
+      </ul>
 
-Slide 8 – Déploiement
-- Pilote : 2 000 volontaires (10–20 territoires)
-- 3 ans : ~50 000 volontaires
-- 5 ans : 150 000–200 000 volontaires
+      <h3>Slide 7 – Statut et gouvernance</h3>
+      <ul>
+        <li>conditions : ≥ 62 ans, volontaire, apte ;</li>
+        <li>ANRCT au niveau national ;</li>
+        <li>préfets et communes au niveau territorial.</li>
+      </ul>
 
-Slide 9 – Impact
-- Capacité accrue de gestion de crise
-- Soulagement des services publics
-- Cohésion intergénérationnelle
-- Image d’innovation sociale
+      <h3>Slide 8 – Déploiement</h3>
+      <ul>
+        <li>pilote : 2&nbsp;000 volontaires (10–20 territoires) ;</li>
+        <li>3 ans : ~50&nbsp;000 volontaires ;</li>
+        <li>5 ans : 150&nbsp;000–200&nbsp;000 volontaires.</li>
+      </ul>
 
-Slide 10 – Garde-fous
-- Volontariat intégral
-- Interdiction de substitution d’emploi
-- Missions non dangereuses
-- Évaluation annuelle
+      <h3>Slide 9 – Impact</h3>
+      <ul>
+        <li>capacité accrue de gestion de crise ;</li>
+        <li>soulagement des services publics ;</li>
+        <li>cohésion intergénérationnelle ;</li>
+        <li>image d’innovation sociale.</li>
+      </ul>
 
-Slide 11 – Conclusion
-Le VRA fait de la transition vers la retraite un acte civique et un pilier de la résilience nationale.
-</pre>
+      <h3>Slide 10 – Garde-fous</h3>
+      <ul>
+        <li>volontariat intégral ;</li>
+        <li>interdiction de substitution d’emploi ;</li>
+        <li>missions non dangereuses ;</li>
+        <li>évaluation annuelle.</li>
+      </ul>
+
+      <h3>Slide 11 – Conclusion</h3>
+      <p>
+        Le VRA fait de la transition vers la retraite un <strong>acte civique</strong> et un <strong>pilier de la résilience nationale</strong>.
+      </p>
+    </section>
+
+  </div>
 </body>
 </html>
