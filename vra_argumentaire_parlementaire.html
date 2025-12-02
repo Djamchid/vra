@@ -2,77 +2,185 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Argumentaire parlementaire – VRA</title>
+  <title>Argumentaire parlementaire – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      background: #f9fafb;
-      color: #111827;
-      line-height: 1.5;
-    }
-    h1, h2, h3 {
-      color: #111827;
-    }
-    pre {
-      white-space: pre-wrap;
-      font-family: inherit;
-    }
+
+  :root {
+    --bg: #f9fafb;
+    --fg: #111827;
+    --muted: #6b7280;
+    --accent: #1f6feb;
+    --radius-xl: 18px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 48px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(31, 111, 235, 0.06);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tagline span.icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 14px;
+    border: 1px solid rgba(31, 111, 235, 0.18);
+  }
+  h1 {
+    font-size: 28px;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-top: 22px;
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+  p {
+    margin: 6px 0;
+  }
+  ul {
+    padding-left: 22px;
+    margin: 4px 0 8px;
+  }
+  li {
+    margin: 2px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 720px;
+  }
+  .section {
+    margin-top: 18px;
+    padding-top: 4px;
+    border-top: 1px solid #e5e7eb;
+  }
+
   </style>
 </head>
 <body>
-<pre>
-Argumentaire pour audition parlementaire – Volontariat de Retraite Active (VRA)
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">🏛️</span>
+        Argumentaire pour audition
+      </div>
+      <h1>Argumentaire pour audition parlementaire – VRA</h1>
+      <p class="lead">
+        Série d’arguments courts, orientés réponses aux objections : coût, risques, substitution d’emploi, militarisation, timing.
+      </p>
+    </header>
 
-1. Pourquoi créer le VRA ?
-- La France manque d’une force civile structurée pour la résilience.
-- Les crises climatiques, sanitaires, cyber et sociales se multiplient.
-- Les 62–65 ans représentent un potentiel considérable : temps, expérience, disponibilité.
-- La transition vers la retraite est souvent subie, peu valorisée.
+    <section class="section">
+      <h2>1. Pourquoi créer le VRA&nbsp;?</h2>
+      <ul>
+        <li>la France manque d’une force civile structurée pour la résilience ;</li>
+        <li>les crises climatiques, sanitaires, cyber et sociales se multiplient ;</li>
+        <li>les 62–65 ans représentent un potentiel considérable : temps, expérience, disponibilité ;</li>
+        <li>la transition vers la retraite est souvent subie, peu valorisée.</li>
+      </ul>
+    </section>
 
-2. À quoi sert le VRA ?
-- Renforcer la résilience des territoires
-- Soulager les services publics (hôpitaux, écoles, mairies)
-- Protéger les personnes vulnérables
-- Améliorer la gestion des crises
-- Lutter contre la désinformation
-- Protéger symboliquement les jeunes générations
+    <section class="section">
+      <h2>2. À quoi sert le VRA&nbsp;?</h2>
+      <ul>
+        <li>renforcer la résilience des territoires ;</li>
+        <li>soulager les services publics (hôpitaux, écoles, mairies) ;</li>
+        <li>protéger les personnes vulnérables ;</li>
+        <li>améliorer la gestion des crises ;</li>
+        <li>lutter contre la désinformation ;</li>
+        <li>protéger symboliquement les jeunes générations.</li>
+      </ul>
+    </section>
 
-3. Pourquoi 62 ans ?
-- C’est l’âge minimal de départ à la retraite.
-- Beaucoup de citoyens sont à la limite de leur capacité professionnelle.
-- Ils cherchent une transition utile, socialement reconnue.
+    <section class="section">
+      <h2>3. Pourquoi 62 ans&nbsp;?</h2>
+      <p>
+        C’est l’âge minimal de départ à la retraite. Beaucoup de citoyens sont à la limite de leur capacité professionnelle
+        et cherchent une transition utile, socialement reconnue.
+      </p>
+    </section>
 
-4. Quel coût ?
-- Indemnité inférieure au SMIC, financée par l’État.
-- Effet levier important :
-  • réduction des coûts de gestion de crise,
-  • meilleure continuité du service public,
-  • diminution des arrêts maladie de fin de carrière.
+    <section class="section">
+      <h2>4. Quel coût&nbsp;?</h2>
+      <p>
+        L’indemnité reste inférieure au SMIC et est financée par l’État. Elle produit un effet levier important&nbsp;:
+      </p>
+      <ul>
+        <li>réduction des coûts de gestion de crise ;</li>
+        <li>meilleure continuité du service public ;</li>
+        <li>diminution des arrêts maladie de fin de carrière.</li>
+      </ul>
+    </section>
 
-5. Quels risques ?
-- Risque de préretraite déguisée : encadrement strict et volontariat intégral.
-- Risque de substitution d’emploi : interdiction explicite dans la loi.
-- Risque de confusion avec le militaire : missions civiles uniquement, non dangereuses.
+    <section class="section">
+      <h2>5. Quels risques&nbsp;?</h2>
+      <ul>
+        <li>risque de préretraite déguisée : encadrement strict et volontariat intégral ;</li>
+        <li>risque de substitution d’emploi : interdiction explicite dans la loi ;</li>
+        <li>risque de confusion avec le militaire : missions civiles uniquement, non dangereuses.</li>
+      </ul>
+    </section>
 
-6. Quel impact attendu ?
-- 150 000 à 200 000 volontaires formés en 5 ans.
-- Première force civile de résilience en Europe.
-- Renforcement de la confiance citoyens–institutions.
-- Amélioration de la gestion des crises localement.
+    <section class="section">
+      <h2>6. Quel impact attendu&nbsp;?</h2>
+      <ul>
+        <li>150&nbsp;000 à 200&nbsp;000 volontaires formés en 5 ans ;</li>
+        <li>première force civile de résilience en Europe ;</li>
+        <li>renforcement de la confiance citoyens–institutions ;</li>
+        <li>amélioration de la gestion des crises localement.</li>
+      </ul>
+    </section>
 
-7. Pourquoi maintenant ?
-- Conjoncture géopolitique incertaine.
-- Tension sur les services publics.
-- Nécessité de recréer du lien civique.
+    <section class="section">
+      <h2>7. Pourquoi maintenant&nbsp;?</h2>
+      <p>
+        Conjoncture géopolitique incertaine, tension sur les services publics, nécessité de recréer du lien civique&nbsp;:
+        le contexte rend le VRA à la fois pertinent et urgent.
+      </p>
+    </section>
 
-8. Pourquoi c’est politiquement transversal ?
-- Le VRA n’est ni une mesure idéologique, ni partisane.
-- Il répond à des besoins concrets, compréhensibles par tous.
-- Il valorise les seniors, protège les jeunes, renforce l’État sans militariser la société.
-</pre>
+    <section class="section">
+      <h2>8. Pourquoi c’est politiquement transversal&nbsp;?</h2>
+      <p>
+        Le VRA n’est ni une mesure idéologique, ni partisane. Il répond à des besoins concrets, valorise les seniors,
+        protège les jeunes, renforce l’État sans militariser la société.
+      </p>
+    </section>
+
+  </div>
 </body>
 </html>
