@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>VRA – Évaluation budgétaire</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #111827;
+      --accent: #1d4ed8;
+      --accent-soft: #e0ebff;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
+      --badge: #0f766e;
+      --badge-bg: #ecfdf5;
+      --danger: #b91c1c;
+      --danger-soft: #fee2e2;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 960px;
+      margin: 40px auto 48px;
+      padding: 0 16px 32px;
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 20px;
+      padding: 24px 24px 20px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.32);
+      margin-bottom: 10px;
+    }
+    .tagline span.icon {
+      font-size: 0.9rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.85rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      max-width: 640px;
+      color: #e5edff;
+    }
+    .badge-strip {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.55);
+    }
+    .badge strong {
+      font-weight: 600;
+    }
+    main {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 22px;
+    }
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h3 {
+      margin: 14px 0 6px;
+      font-size: 0.98rem;
+    }
+    .card .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    p {
+      margin: 6px 0 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    ul {
+      margin: 6px 0 8px 1.1rem;
+      padding-left: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    li + li {
+      margin-top: 2px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge);
+      font-weight: 500;
+    }
+    .pill.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+    .figure {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 4px 0;
+    }
+    .figure small {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.86rem;
+    }
+    th, td {
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 1px solid rgba(209, 213, 219, 0.8);
+    }
+    th {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6b7280;
+      background: #f3f4ff;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .scenario-tag {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #374151;
+      background: #f9fafb;
+    }
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+    @media (max-width: 720px) {
+      .scenario-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .scenario-card {
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 10px 11px 9px;
+      background: #f9fafb;
+    }
+    .scenario-card h3 {
+      margin: 0 0 4px;
+      font-size: 0.88rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .scenario-card h3 span.label {
+      font-weight: 600;
+    }
+    .scenario-card h3 span.number {
+      font-size: 0.78rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+    .scenario-card .cost {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 2px;
+    }
+    .scenario-card .cost small {
+      font-size: 0.76rem;
+      font-weight: 400;
+      color: #4b5563;
+    }
+    .scenario-card p {
+      margin: 3px 0 0;
+      font-size: 0.8rem;
+    }
+    .note {
+      font-size: 0.76rem;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    .highlight {
+      background: #eef2ff;
+      border-radius: 12px;
+      padding: 8px 10px 7px;
+      font-size: 0.84rem;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">📊</span>
+        <span>Volontariat de Retraite Active – cadrage budgétaire</span>
+      </div>
+      <h1>Évaluation budgétaire du VRA</h1>
+      <p class="subtitle">
+        Cette page présente un cadrage budgétaire réaliste du Volontariat de Retraite Active (VRA),
+        construit sur des hypothèses transparentes : le VRA finance exclusivement les coûts humains
+        (volontaires et encadrants) et une partie des frais généraux d'encadrement, tandis que les
+        entités bénéficiaires prennent à leur charge les frais de terrain.
+      </p>
+      <div class="badge-strip">
+        <div class="badge">
+          <span>🎯</span><span><strong>Objectif</strong> : force civile senior pour la résilience française</span>
+        </div>
+        <div class="badge">
+          <span>💶</span><span>Financement envisagé : volet civil du budget de Défense (5&nbsp;% du PIB)</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="eyebrow">Hypothèses de base</div>
+        <h2>Structure des coûts humains (RH)</h2>
+        <p>
+          Le VRA repose sur une architecture budgétaire volontairement sobre : le dispositif assume
+          uniquement les coûts humains (volontaires et encadrants) ainsi qu'une partie des frais
+          généraux liés à l'encadrement central. Les frais de terrain (locaux, logistique, etc.)
+          sont supportés par les entités bénéficiaires (communes, hôpitaux, associations, etc.).
+        </p>
+
+        <h3>1. Coût d'un volontaire VRA</h3>
+        <ul>
+          <li>Cotisation retraite : <strong>600&nbsp;€ / mois</strong></li>
+          <li>Indemnité d'engagement : <strong>400&nbsp;€ / mois</strong></li>
+          <li><strong>Total : 1&nbsp;000&nbsp;€ / mois, soit 12&nbsp;000&nbsp;€ / an</strong></li>
+        </ul>
+
+        <h3>2. Encadrement (terrain + central)</h3>
+        <ul>
+          <li>Encadrement de terrain : <strong>5&nbsp;%</strong> des effectifs VRA</li>
+          <li>Encadrement central : <strong>1&nbsp;%</strong> des effectifs VRA</li>
+          <li>Soit <strong>6&nbsp;% d'encadrants</strong> au total, rémunérés sur la même base RH que les volontaires
+              (12&nbsp;000&nbsp;€ / an).</li>
+        </ul>
+
+        <h3>3. Frais généraux (FG)</h3>
+        <p>
+          La logique retenue est la suivante :
+        </p>
+        <ul>
+          <li><strong>FG de terrain</strong> : pris en charge par les entités bénéficiaires (hors budget VRA).</li>
+          <li><strong>FG d'encadrement</strong> : pris en charge par le ministère de tutelle (Défense ou autre)
+              sur une ligne distincte des coûts RH.</li>
+        </ul>
+        <p>
+          Pour l'encadrement, les frais généraux sont normés à :
+        </p>
+        <div class="highlight">
+          <strong>FG encadrement : 1&nbsp;000&nbsp;€ / mois / encadrant, soit 12&nbsp;000&nbsp;€ / an / encadrant.</strong>
+        </div>
+        <p class="note">
+          Les FG terrain (locaux, énergie, petites fournitures, etc.) sont supposés mutualisés avec
+          les infrastructures existantes des bénéficiaires et ne sont donc pas comptabilisés dans le budget VRA.
+        </p>
+      </section>
+
+      <aside class="card">
+        <div class="eyebrow">Résumé unitaire</div>
+        <h2>Coût annuel par volontaire</h2>
+        <p>
+          En agrégeant le coût direct du volontaire, la part d'encadrement RH et la part de frais généraux
+          d'encadrement, on obtient un coût complet par volontaire qui permet de décliner facilement
+          plusieurs scénarios d'ampleur.
+        </p>
+
+        <h3>1. Coûts unitaires</h3>
+        <ul>
+          <li>Volontaire : 12&nbsp;000&nbsp;€ / an</li>
+          <li>Part RH encadrement (6&nbsp;%) : 720&nbsp;€ / an</li>
+          <li>Part FG encadrement (6&nbsp;%) : 720&nbsp;€ / an</li>
+        </ul>
+
+        <div class="figure">
+          ≈ 13&nbsp;440&nbsp;€ <small>/ an / volontaire (arrondi à 13&nbsp;500&nbsp;€ pour la communication)</small>
+        </div>
+
+        <div class="highlight">
+          <strong>Le VRA reste un dispositif très sobre :</strong><br />
+          le cœur du budget est constitué de cotisations retraite et d'une indemnité
+          modeste, avec un encadrement limité à 6&nbsp;% des effectifs.
+        </div>
+      </aside>
+    </main>
+
+    <section class="card" style="margin-top:22px;">
+      <div class="eyebrow">Trois scénarios d'ampleur</div>
+      <h2>Scénarios budgétaires VRA</h2>
+      <p>
+        En appliquant le coût unitaire de référence (~13&nbsp;500&nbsp;€ / an / volontaire), trois scénarios
+        illustrent la montée en puissance possible du dispositif, depuis un pilote national modeste jusqu'à
+        une ambition pleinement nationale.
+      </p>
+
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <h3>
+            <span class="label">Scénario A</span>
+            <span class="number">20&nbsp;000 volontaires</span>
+          </h3>
+          <div class="cost">
+            ≈ 268,8&nbsp;M€ <small>/ an (≈ 270&nbsp;M€)</small>
+          </div>
+          <p>
+            <span class="scenario-tag">Pilote national</span><br />
+            Permet d'expérimenter le VRA dans toutes les régions, avec quelques volontaires par commune
+            et une montée en compétence progressive des chaînes d'encadrement.
+          </p>
+        </div>
+
+        <div class="scenario-card">
+          <h3>
+            <span class="label">Scénario B</span>
+            <span class="number">100&nbsp;000 volontaires</span>
+          </h3>
+          <div class="cost">
+            ≈ 1,344&nbsp;Md€ <small>/ an (≈ 1,35&nbsp;Md€)</small>
+          </div>
+          <p>
+            <span class="scenario-tag">Montée en puissance</span><br />
+            Force civile structurée, soutien visible aux plans communaux de sauvegarde, aux hôpitaux,
+            aux écoles et aux dispositifs d'accompagnement des publics vulnérables.
+          </p>
+        </div>
+
+        <div class="scenario-card">
+          <h3>
+            <span class="label">Scénario C</span>
+            <span class="number">200&nbsp;000 volontaires</span>
+          </h3>
+          <div class="cost">
+            ≈ 2,688&nbsp;Md€ <small>/ an (≈ 2,7&nbsp;Md€)</small>
+          </div>
+          <p>
+            <span class="scenario-tag">Ambition nationale 2030</span><br />
+            Plus grande force civile de résilience en Europe : maillage complet du territoire, capacité de
+            soutien significative en cas de crises de haute intensité ou prolongées.
+          </p>
+        </div>
+      </div>
+
+      <p class="note">
+        À titre de repère, dans le cadre d'un budget de Défense porté à 5&nbsp;% du PIB, ces montants restent
+        pleinement absorbables : le scénario C représenterait moins de 5&nbsp;% du budget Défense, pour une
+        capacité de résilience civile sans équivalent.
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:18px;">
+      <div class="eyebrow">Lecture politique</div>
+      <h2>Messages clés pour les décideurs</h2>
+      <ul>
+        <li>
+          <span class="pill">Sobriété budgétaire</span><br />
+          Le VRA repose sur des montants unitaires modestes, contenus, lisibles : environ 13&nbsp;500&nbsp;€ / an
+          par volontaire, incluant la part d'encadrement et les frais généraux centraux.
+        </li>
+        <li>
+          <span class="pill">Justice pour les 60&nbsp;+</span><br />
+          Les cotisations retraite sont au cœur du dispositif : le VRA offre une transition digne,
+          utile et reconnue pour des citoyens en fin de carrière ou jeunes retraités.
+        </li>
+        <li>
+          <span class="pill">Réforme transpartisane</span><br />
+          Le financement via le volet civil du budget de Défense permet de sortir du seul débat retraite :
+          le VRA est avant tout une mesure de résilience et de cohésion nationale.
+        </li>
+        <li>
+          <span class="pill danger">Aucun effet d'aubaine</span><br />
+          Les frais de terrain sont pris en charge par les bénéficiaires ; la doctrine d'emploi
+          peut exclure explicitement toute substitution à des postes salariés pérennes.
+        </li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
