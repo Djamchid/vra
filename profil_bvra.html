@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>VRA – Profil des BVRA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #111827;
+      --accent: #1d4ed8;
+      --accent-soft: #e0ebff;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
+      --badge-bg: #ecfdf5;
+      --badge-fg: #0f766e;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 980px;
+      margin: 40px auto 48px;
+      padding: 0 16px 32px;
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 8% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.32);
+      margin-bottom: 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1rem;
+      max-width: 720px;
+      color: #e5edff;
+    }
+    main {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 22px;
+    }
+    @media (max-width: 880px) {
+      main { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+      margin-top: 18px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    p {
+      margin: 6px 0 10px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+    ul {
+      margin: 6px 0 10px 1.1rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    .highlight {
+      background: #eef2ff;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+    }
+    .aside {
+      margin-top: 18px;
+    }
+    .mini-block {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tagline">🌟 Volontariat de Retraite Active</div>
+      <h1>Profil des BVRA</h1>
+      <p class="subtitle">
+        Les Bénévoles du Volontariat de Retraite Active (BVRA) sont les pionniers qui rendent le VRA possible.
+        Ils construisent, testent, crédibilisent et préparent son déploiement national.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <div class="card">
+          <h2>1. Mission principale</h2>
+          <p><strong>Construire, démontrer, convaincre.</strong></p>
+          <ul>
+            <li>Structurer les missions, la doctrine, les garde‑fous.</li>
+            <li>Identifier des partenaires (communes, hôpitaux, associations).</li>
+            <li>Monter des démonstrateurs locaux pour tester tous les aspects du VRA.</li>
+            <li>Préparer les dossiers d’adoption politique et budgétaire.</li>
+          </ul>
+          <div class="highlight">
+            Les BVRA sont les fondateurs du dispositif. Sans eux, pas de VRA.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>2. Profils recherchés</h2>
+          <ul>
+            <li>Anciens cadres publics ou privés.</li>
+            <li>Anciens soignants, militaires, réservistes.</li>
+            <li>Anciens élus locaux, cadres territoriaux.</li>
+            <li>Responsables associatifs, RH, chefs de projet.</li>
+          </ul>
+          <div class="mini-block">
+            <strong>Âge :</strong> idéalement 60+ ans (ou 55–59 en transition)<br/>
+            <strong>Disponibilité :</strong> 2 à 4 jours/semaine pendant 12 à 24 mois
+          </div>
+        </div>
+      </section>
+
+      <aside class="aside">
+        <div class="card">
+          <h2>3. Qualités attendues</h2>
+          <ul>
+            <li>Sens du service et de l’intérêt général.</li>
+            <li>Rigueur, fiabilité, loyauté.</li>
+            <li>Capacité à dialoguer avec des acteurs variés.</li>
+            <li>Autonomie dans l’organisation de son temps.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>4. Ce que le BVRA n’est pas</h2>
+          <ul>
+            <li>Un poste opérationnel de terrain.</li>
+            <li>Un emploi déguisé.</li>
+            <li>Un rôle isolé : les BVRA travaillent en équipe.</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <div class="card">
+      <h2>5. Sens de l’engagement</h2>
+      <p>
+        Un BVRA est un citoyen expérimenté qui choisit de consacrer une part de son temps
+        à fonder un dispositif national d’engagement pour les 60+, afin de renforcer la
+        résilience et la cohésion de la France.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

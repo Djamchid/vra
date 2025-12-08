@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>VRA – Doctrine anti-effet d'aubaine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #111827;
+      --accent: #1d4ed8;
+      --accent-soft: #e0ebff;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
+      --badge-bg: #ecfdf5;
+      --badge-fg: #0f766e;
+      --danger: #b91c1c;
+      --danger-soft: #fee2e2;
+      --ok: #166534;
+      --ok-soft: #dcfce7;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 980px;
+      margin: 40px auto 48px;
+      padding: 0 16px 32px;
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 20px;
+      padding: 24px 24px 20px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 8% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.32);
+      margin-bottom: 10px;
+    }
+    .tagline span.icon {
+      font-size: 0.9rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.9rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      max-width: 680px;
+      color: #e5edff;
+    }
+    .badge-strip {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.55);
+    }
+    .badge strong {
+      font-weight: 600;
+    }
+    main {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.4fr);
+      gap: 22px;
+    }
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card .eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    p {
+      margin: 6px 0 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+    ul {
+      margin: 6px 0 8px 1.1rem;
+      padding-left: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    li + li {
+      margin-top: 2px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--badge-bg);
+      color: var(--badge-fg);
+      font-weight: 500;
+    }
+    .pill.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+    .pill.ok {
+      background: var(--ok-soft);
+      color: var(--ok);
+    }
+    .infographic {
+      display: grid;
+      gap: 14px;
+      margin-top: 6px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 12px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #f9fafb;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #1f2933;
+      background: #e0ebff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content h3 {
+      margin: 0 0 4px;
+      font-size: 0.96rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-content p {
+      margin: 2px 0 4px;
+      font-size: 0.86rem;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 3px;
+    }
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.74rem;
+      padding: 1px 8px;
+      background: #f3f4ff;
+      color: #4b5563;
+    }
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width: 720px) {
+      .panel-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .panel {
+      border-radius: 14px;
+      padding: 10px 11px 9px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #f9fafb;
+      font-size: 0.85rem;
+    }
+    .panel h3 {
+      margin: 0 0 4px;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .panel ul {
+      margin: 4px 0 0 1rem;
+      font-size: 0.82rem;
+    }
+    .note {
+      font-size: 0.76rem;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+    .quote-box {
+      border-radius: 14px;
+      padding: 10px 11px 9px;
+      background: #eef2ff;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      font-size: 0.84rem;
+      margin-top: 8px;
+    }
+    .quote-box strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+    .checklist {
+      margin-top: 6px;
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 10px 11px 9px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      font-size: 0.84rem;
+    }
+    .checklist h3 {
+      margin: 0 0 4px;
+      font-size: 0.9rem;
+    }
+    .checklist ul {
+      margin: 4px 0 0 1.1rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">🛡️</span>
+        <span>Volontariat de Retraite Active – doctrine anti-effet d'aubaine</span>
+      </div>
+      <h1>Protéger l'esprit du VRA</h1>
+      <p class="subtitle">
+        Le VRA est une force civile de renfort, pas une main-d'œuvre de substitution. Cette page
+        illustre de façon visuelle et pédagogique les garde-fous qui garantissent l'absence
+        d'effet d'aubaine pour les employeurs publics ou privés.
+      </p>
+      <div class="badge-strip">
+        <div class="badge">
+          <span>🚫</span><span><strong>Jamais</strong> à la place d'un emploi salarié</span>
+        </div>
+        <div class="badge">
+          <span>🤝</span><span>Uniquement du renfort pour la résilience et la cohésion</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="eyebrow">Infographie</div>
+        <h2>Les 5 garde-fous contre l'effet d'aubaine</h2>
+        <p>
+          La doctrine anti-effet d'aubaine du VRA repose sur quelques principes simples, faciles à
+          contrôler sur le terrain. Chaque mission doit pouvoir cocher ces garde-fous.
+        </p>
+
+        <div class="infographic">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3><span>Non-substitution à l'emploi</span><span class="pill danger">Ligne rouge</span></h3>
+              <p>
+                Aucune mission VRA ne doit correspondre à un poste salarié existant ou récemment supprimé.
+                Le VRA vient en renfort, jamais en remplacement.
+              </p>
+              <div class="chips">
+                <span class="chip">Pas de remplacement d'agents</span>
+                <span class="chip">Pas d'emploi déguisé</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3><span>Missions orientées résilience</span><span class="pill ok">Zone verte</span></h3>
+              <p>
+                Les missions relèvent exclusivement de la résilience, du lien social, de la
+                préparation aux crises ou du soutien non technique aux services essentiels.
+              </p>
+              <div class="chips">
+                <span class="chip">Préparation aux crises</span>
+                <span class="chip">Soutien aux vulnérables</span>
+                <span class="chip">Logistique simple</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3><span>Encadrement obligatoire</span><span class="pill">Toujours accompagné</span></h3>
+              <p>
+                Le VRA agit sous la responsabilité d'une structure bénéficiaire identifiée. Il ne
+                prend pas de décisions de gestion ni de commande publique.
+              </p>
+              <div class="chips">
+                <span class="chip">Rôle d'appui</span>
+                <span class="chip">Pas de chaîne hiérarchique salariale</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3><span>Partage des coûts</span><span class="pill">Engagement réel des bénéficiaires</span></h3>
+              <p>
+                Les frais de terrain (locaux, petites fournitures, logistique) sont pris en charge par
+                les bénéficiaires. Le VRA ne sert pas à réduire leurs dépenses de fonctionnement.
+              </p>
+              <div class="chips">
+                <span class="chip">VRA : coûts humains</span>
+                <span class="chip">Bénéficiaires : frais de terrain</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3><span>Durée limitée & contrôle</span><span class="pill danger">Anti-captation</span></h3>
+              <p>
+                L'engagement VRA est limité dans le temps et les missions peuvent être contrôlées.
+                Toute suspicion d'effet d'aubaine peut être signalée et investiguée.
+              </p>
+              <div class="chips">
+                <span class="chip">Engagement 12–24 mois</span>
+                <span class="chip">Alerte possible</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="eyebrow">Comprendre en un coup d'œil</div>
+        <h2>Ce que le VRA fait… et ne fait pas</h2>
+        <div class="panel-grid">
+          <div class="panel">
+            <h3><span>✅ Autorisé</span></h3>
+            <ul>
+              <li>Renfort ponctuel en cas de crise ou de tension forte.</li>
+              <li>Appui non technique aux hôpitaux, communes, associations.</li>
+              <li>Visites, accompagnement, lutte contre l'isolement.</li>
+              <li>Participation aux plans communaux de sauvegarde.</li>
+              <li>Animation, médiation, aide logistique simple.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3><span>⛔ Interdit</span></h3>
+            <ul>
+              <li>Remplacer un poste vacant ou gelé.</li>
+              <li>Assurer une fonction structurelle de service.</li>
+              <li>Réduire une masse salariale grâce aux VRA.</li>
+              <li>Confier des tâches techniques ou réglementaires.</li>
+              <li>Installer les VRA sur des besoins pérennes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checklist">
+          <h3>Checklist terrain</h3>
+          <ul>
+            <li>La mission existait-elle auparavant comme poste salarié ?</li>
+            <li>Serait-elle normalement confiée à un salarié ?</li>
+            <li>La structure bénéficierait-elle d'une économie de personnel ?</li>
+            <li>Le besoin est-il exceptionnel, de crise, ou de cohésion ?</li>
+          </ul>
+          <p class="note">
+            Si la mission ressemble à un poste salarié ou à une économie budgétaire déguisée,
+            elle ne doit pas être confiée à des VRA.
+          </p>
+        </div>
+
+        <div class="quote-box">
+          <strong>Formule officielle à retenir :</strong>
+          <em>
+            « Le VRA ne se substitue jamais à l'emploi salarié. Il apporte un renfort civique,
+            temporaire, ciblé sur la résilience, la cohésion et la préparation aux crises. »
+          </em>
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
