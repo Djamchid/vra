@@ -2,809 +2,508 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Volontariat de Retraite Active – Centre de ressources</title>
+  <title>VRA – Volontariat de Retraite Active</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f5f5f7;
-      --card-bg: #ffffff;
-      --accent: #1f6feb;
+      --bg: #f5f7fb;
+      --fg: #0f172a;
+      --accent: #1d4ed8;
       --accent-soft: #e0ebff;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-subtle: #e5e7eb;
-      --radius-xl: 18px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
+      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #edf2ff 0, #f5f5f7 40%, #f9fafb 100%);
-      color: var(--text-main);
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 32px 16px 48px;
+      max-width: 1100px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
     }
-
     header {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 32px;
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 24px;
+      padding: 26px 24px 22px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3);
+      position: relative;
+      overflow: hidden;
     }
-
-    @media (min-width: 768px) {
-      header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
     }
-
-    .hero-text {
-      max-width: 640px;
-    }
-
     .tagline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(31, 111, 235, 0.08);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      background: rgba(15, 23, 42, 0.35);
       margin-bottom: 10px;
     }
-
-    .tagline span.icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
+    .tagline span.icon { font-size: 0.95rem; }
+    h1 {
+      margin: 0;
+      font-size: 2.1rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      max-width: 720px;
+      color: #e5edff;
+    }
+    .header-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: #ffffff;
-      box-shadow: 0 0 0 1px rgba(31, 111, 235, 0.1);
-      font-size: 14px;
-    }
-
-    h1 {
-      font-size: 28px;
-      line-height: 1.2;
-      margin: 0 0 10px;
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 32px;
-      }
-    }
-
-    .hero-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-meta .dot {
-      width: 4px;
-      height: 4px;
+      gap: 8px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: var(--accent);
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.2);
+      color: #e5edff;
+      font-size: 0.86rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
-
-    .hero-card {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: var(--radius-xl);
-      padding: 18px 18px 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      max-width: 340px;
-    }
-
-    .hero-card-title {
-      font-size: 14px;
+    .btn.primary {
+      background: #fbbf24;
+      color: #111827;
+      border-color: #facc15;
       font-weight: 600;
-      margin-bottom: 6px;
     }
-
-    .hero-card-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.28);
     }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #f3f4ff;
-      color: #374151;
-    }
-
-    .hero-card-footer {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .primary-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
+    .btn.primary:hover {
+      background: #facc15;
     }
 
     main {
-      margin-top: 12px;
-    }
-
-    .section {
-      margin-bottom: 28px;
-    }
-
-    .section-header {
+      margin-top: 26px;
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 12px;
+      flex-direction: column;
+      gap: 26px;
     }
 
-    .section-title {
-      font-size: 17px;
-      font-weight: 600;
-      display: inline-flex;
+    h2.section-title {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      display: flex;
       align-items: center;
       gap: 8px;
     }
-
-    .section-title span.marker {
-      width: 6px;
-      height: 18px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, var(--accent), #8b5cf6);
-    }
-
+    h2.section-title span.emoji { font-size: 1.2rem; }
     .section-subtitle {
-      font-size: 13px;
-      color: var(--text-muted);
-      max-width: 520px;
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
-
-    @media (min-width: 640px) {
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      header { padding: 22px 18px 18px; }
     }
 
-    @media (min-width: 980px) {
-      .grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .doc-card {
+    .card {
       background: var(--card-bg);
       border-radius: 16px;
-      border: 1px solid var(--border-subtle);
-      padding: 14px 14px 12px;
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 4px;
       position: relative;
-      overflow: hidden;
     }
-
-    .doc-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 3px 8px;
-      border-radius: 999px;
-      align-self: flex-start;
-      display: inline-flex;
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: flex;
       align-items: center;
       gap: 6px;
     }
-
-    .doc-tag span.dot {
-      width: 6px;
-      height: 6px;
+    .card-badge {
+      font-size: 0.72rem;
+      padding: 1px 8px;
       border-radius: 999px;
-      background: var(--accent);
+      background: #eef2ff;
+      color: #4338ca;
     }
-
-    .doc-title {
-      font-size: 15px;
-      font-weight: 600;
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 2px 0 6px;
     }
-
-    .doc-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      flex: 1;
-    }
-
-    .doc-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 2px;
-    }
-
-    .doc-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .doc-actions {
+    .card-actions {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-top: 6px;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
     }
-
-    .doc-actions a.open-link {
-      flex: 1 1 auto;
-      text-align: center;
-      padding: 7px 10px;
+    .card-actions a.card-link,
+    .card-actions button.card-copy {
+      flex: 1;
+      font-size: 0.8rem;
       border-radius: 999px;
-      border: 1px solid rgba(31, 111, 235, 0.16);
-      background: radial-gradient(circle at top left, rgba(31, 111, 235, 0.05), #ffffff 50%);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .copy-btn {
-      flex: 0 0 auto;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border);
+      padding: 5px 8px;
       background: #f9fafb;
       cursor: pointer;
-      font-size: 12px;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      color: #374151;
-      white-space: nowrap;
+      text-decoration: none;
+      color: #111827;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
-
-    .copy-btn .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #9ca3af;
+    .card-actions a.card-link:hover,
+    .card-actions button.card-copy:hover {
+      background: #eef2ff;
+      transform: translateY(-0.5px);
     }
-
-    .copy-btn.copying .status-dot {
-      background: #f59e0b;
-    }
-
-    .copy-btn.success .status-dot {
-      background: #16a34a;
-    }
-
-    .copy-btn.error .status-dot {
-      background: #dc2626;
-    }
-
-    .copy-toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #111827;
-      color: #f9fafb;
-      font-size: 13px;
-      display: none;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.4);
-      z-index: 1000;
-    }
-
-    .copy-toast.show {
-      display: inline-flex;
-      animation: fadeInOut 2.4s ease-in-out;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(8px); }
-      15% { opacity: 1; transform: translateY(0); }
-      85% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(8px); }
+    .card-actions button.card-copy.copied {
+      background: #dcfce7;
+      border-color: #16a34a;
     }
 
     footer {
       margin-top: 32px;
-      font-size: 12px;
-      color: var(--text-muted);
+      font-size: 0.8rem;
+      color: #6b7280;
       text-align: center;
+    }
+    footer a {
+      color: #1d4ed8;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <div class="hero-text">
-        <div class="tagline">
-          <span class="icon">🇫🇷</span>
-          Volontariat de Retraite Active
-        </div>
-        <h1>Centre de ressources du VRA</h1>
-        <p class="hero-subtitle">
-          Cette page rassemble tous les documents de travail autour du Volontariat de Retraite Active :
-          vision stratégique, textes politiques, outils de communication et FAQ citoyenne.
-          Parcourez les fiches ou copiez en un clic le contenu dont vous avez besoin.
-        </p>
-        <div class="hero-meta">
-          <span><span class="dot"></span> Idée en phase d’amorçage</span>
-          <span>📎 9 documents structurés</span>
-          <span>⏱️ Lecture modulable (2–15 min)</span>
-        </div>
+      <div class="tagline">
+        <span class="icon">🛡️</span>
+        <span>Volontariat de Retraite Active – VRA</span>
       </div>
-      <div class="hero-card">
-        <div class="hero-card-title">Par où commencer&nbsp;?</div>
-        <div class="hero-card-text">
-          Si vous découvrez le VRA, commencez par le <strong>livret grand public</strong>,
-          puis la <strong>note stratégique</strong>. Les autres documents approfondissent
-          la mise en œuvre politique et opérationnelle.
-        </div>
-        <div class="pill-list">
-          <span class="pill">🌱 Amorçage</span>
-          <span class="pill">🎯 Résilience</span>
-          <span class="pill">👥 Intergénérationnel</span>
-        </div>
-        <div class="hero-card-footer">
-          <a href="#section-grand-public" class="primary-link">
-            Voir les documents d’introduction →
-          </a>
-        </div>
+      <h1>Mobiliser les 60&nbsp;+ pour la résilience française</h1>
+      <p class="subtitle">
+        Le Volontariat de Retraite Active (VRA) propose un engagement civil de 12 à 24 mois
+        pour les 60&nbsp;+ ans, au service des communes, des services essentiels et de la
+        préparation aux crises, en échange de trimestres de retraite validés.
+      </p>
+      <div class="header-actions">
+        <a class="btn primary" href="vra_livret_grand_public.html">📘 Comprendre le VRA (livret grand public)</a>
+        <a class="btn" href="vra_feuille_de_route.html">🧭 Feuille de route du projet</a>
+        <a class="btn" href="profil_bvra.html">👥 Devenir BVRA (pionnier)</a>
       </div>
     </header>
 
     <main>
-      <!-- Grand public -->
-      <section class="section" id="section-grand-public">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="marker"></span>
-            Introduction & grand public
-          </div>
-          <div class="section-subtitle">
-            Pour comprendre rapidement le VRA, son esprit, et pouvoir l’expliquer à d’autres.
-          </div>
-        </div>
+      <!-- Section 1 : Pour tous les citoyens -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">👨‍👩‍👧‍👦</span>
+          <span>Pour les citoyens et proches</span>
+        </h2>
+        <p class="section-subtitle">
+          Documents pour comprendre l’idée, répondre aux questions et partager autour de soi.
+        </p>
         <div class="grid">
-          <!-- Livret grand public -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Grand public
+          <div class="card" data-file="vra_livret_grand_public.html">
+            <div class="card-title">
+              📘 Livret grand public
+              <span class="card-badge">Introduction</span>
             </div>
-            <div class="doc-title">Livret de présentation du VRA</div>
-            <div class="doc-desc">
-              Document pédagogique qui présente le Volontariat de Retraite Active en langage simple : à qui il s’adresse, ce qu’il propose, et pourquoi il renforce la résilience française.
+            <div class="card-desc">
+              Présentation simple du VRA, de ses objectifs et de son fonctionnement, à destination du grand public.
             </div>
-            <div class="doc-meta">
-              <span>📄 ~4–6 min</span>
-              <span>🎯 Idéal pour une première lecture</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_livret_grand_public.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_livret_grand_public.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir le livret
-              </a>
-              <button class="copy-btn" data-file="vra_livret_grand_public.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
 
-          <!-- FAQ citoyenne -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Grand public
+          <div class="card" data-file="vra_faq_citoyenne.html">
+            <div class="card-title">
+              ❓ FAQ citoyenne
             </div>
-            <div class="doc-title">FAQ citoyenne</div>
-            <div class="doc-desc">
-              Une série de questions-réponses simples pour répondre aux interrogations des citoyens : volontariat, missions, statut, risques, bénéfices.
+            <div class="card-desc">
+              Réponses aux questions les plus fréquentes sur le VRA&nbsp;: qui, quoi, comment, pourquoi.
             </div>
-            <div class="doc-meta">
-              <span>❓ Réponses rapides</span>
-              <span>📌 Utilisable en support de réunion</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_faq_citoyenne.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_faq_citoyenne.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir la FAQ
-              </a>
-              <button class="copy-btn" data-file="vra_faq_citoyenne.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
+          </div>
+
+          <div class="card" data-file="vra_feuille_de_route.html">
+            <div class="card-title">
+              🧭 Feuille de route
             </div>
-          </article>
+            <div class="card-desc">
+              Où en est le projet aujourd’hui, quelles sont les prochaines étapes, comment contribuer.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_feuille_de_route.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Vision stratégique & architecture -->
-      <section class="section" id="section-strategie">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="marker"></span>
-            Vision stratégique & architecture
-          </div>
-          <div class="section-subtitle">
-            Pour les décideurs et experts souhaitant comprendre la logique d’ensemble et la place du VRA dans la résilience nationale.
-          </div>
-        </div>
+      <!-- Section 2 : Décideurs publics / 2027 / SGDSN -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">🏛️</span>
+          <span>Pour les décideurs publics &amp; 2027</span>
+        </h2>
+        <p class="section-subtitle">
+          Documents pour cabinets ministériels, parlementaires, collectivités, SGDSN, IHEDN, équipes 2027.
+        </p>
         <div class="grid">
-          <!-- Note stratégique -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Stratégie
+          <div class="card" data-file="vra_fiche_cabinet.html">
+            <div class="card-title">
+              📄 Fiche cabinet
+              <span class="card-badge">Synthèse</span>
             </div>
-            <div class="doc-title">Note stratégique complète</div>
-            <div class="doc-desc">
-              Diagnostic, objectifs, principes, missions, gouvernance, déploiement : la vue d’ensemble structurée du VRA comme outil de résilience française.
+            <div class="card-desc">
+              Vue d’ensemble rapide pour cabinets ministériels, préfets, directions d’administration centrale.
             </div>
-            <div class="doc-meta">
-              <span>📄 ~10–12 pages</span>
-              <span>🎯 Cible : cabinets, directions, experts</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_fiche_cabinet.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_note_strategique.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir la note
-              </a>
-              <button class="copy-btn" data-file="vra_note_strategique.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
 
-          <!-- Fiche cabinet -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Synthèse
+          <div class="card" data-file="vra_note_strategique.html">
+            <div class="card-title">
+              🧠 Note stratégique
             </div>
-            <div class="doc-title">Fiche “cabinet ministériel”</div>
-            <div class="doc-desc">
-              Deux pages de synthèse pour présenter rapidement le dispositif à un membre de cabinet, un élu ou un responsable administratif.
+            <div class="card-desc">
+              Positionnement du VRA dans le contexte des menaces de haute intensité et de la crise des retraites.
             </div>
-            <div class="doc-meta">
-              <span>🧾 2 pages</span>
-              <span>⚡ Lecture express</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_note_strategique.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_fiche_cabinet.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir la fiche
-              </a>
-              <button class="copy-btn" data-file="vra_fiche_cabinet.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
 
-          <!-- Feuille de route -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Feuille de route
+          <div class="card" data-file="vra_argumentaire_parlementaire.html">
+            <div class="card-title">
+              🏛️ Argumentaire parlementaire
             </div>
-            <div class="doc-title">Feuille de route de concrétisation</div>
-            <div class="doc-desc">
-              Phases d’amorçage, de conceptualisation, de prototypage, de légalisation et de généralisation : la trajectoire pour passer de l’idée au dispositif réel.
+            <div class="card-desc">
+              Argumentaire prêt-à-l’emploi pour les parlementaires et leurs collaborateurs.
             </div>
-            <div class="doc-meta">
-              <span>🧭 Roadmap 0 → 4</span>
-              <span>👁️ Vue process</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_argumentaire_parlementaire.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_feuille_de_route.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir la feuille de route
-              </a>
-              <button class="copy-btn" data-file="vra_feuille_de_route.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
+          </div>
+
+          <div class="card" data-file="budget.html">
+            <div class="card-title">
+              💶 Budget du VRA
+              <span class="card-badge">Nouveau</span>
             </div>
-          </article>
+            <div class="card-desc">
+              Évaluation budgétaire du VRA (coûts RH, encadrement, scénarios d’ampleur).
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="budget.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="aubaine.html">
+            <div class="card-title">
+              🧩 Doctrine anti-effet d’aubaine
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Garde-fous, checklist terrain et doctrine pour éviter toute substitution à l’emploi salarié.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="aubaine.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Outils politiques & juridiques -->
-      <section class="section" id="section-politiques">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="marker"></span>
-            Outils politiques & juridiques
-          </div>
-          <div class="section-subtitle">
-            Pour transformer le VRA en dispositif institutionnel : textes, arguments, présentation politique.
-          </div>
-        </div>
+      <!-- Section 3 : Médias & politiques -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">📺</span>
+          <span>Pour médias &amp; responsables politiques</span>
+        </h2>
+        <p class="section-subtitle">
+          Outils narratifs prêts à l’emploi pour interviews, plateaux TV, tribunes, débats publics.
+        </p>
         <div class="grid">
-          <!-- Projet de loi -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Juridique
+          <div class="card" data-file="vra_discours_politique.html">
+            <div class="card-title">
+              🎤 Discours politique
             </div>
-            <div class="doc-title">Projet de loi (version préliminaire)</div>
-            <div class="doc-desc">
-              Structure du texte législatif instaurant le VRA : objet, statut, missions, gouvernance, financement, évaluation.
+            <div class="card-desc">
+              Trame de discours pour un responsable politique présentant le VRA comme projet national.
             </div>
-            <div class="doc-meta">
-              <span>⚖️ Base législative</span>
-              <span>🧱 Pour juristes & législateurs</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_discours_politique.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_projet_de_loi.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir le projet de loi
-              </a>
-              <button class="copy-btn" data-file="vra_projet_de_loi.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
 
-          <!-- Argumentaire audition -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Argumentaire
+          <div class="card" data-file="vra_discours_medias_tv.html">
+            <div class="card-title">
+              📺 Discours médias / TV
             </div>
-            <div class="doc-title">Argumentaire pour audition parlementaire</div>
-            <div class="doc-desc">
-              Série d’arguments courts, orientés réponses aux objections : coût, risques, substitution d’emploi, militarisation, timing.
+            <div class="card-desc">
+              Version resserrée pour intervention média, plateau TV, radio, podcast.
             </div>
-            <div class="doc-meta">
-              <span>🎯 Format Q/R</span>
-              <span>🏛️ Pour commissions & auditions</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_discours_medias_tv.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_argumentaire_parlementaire.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir l’argumentaire
-              </a>
-              <button class="copy-btn" data-file="vra_argumentaire_parlementaire.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
+          </div>
+
+          <div class="card" data-file="vra_pitch_deck.html">
+            <div class="card-title">
+              📊 Pitch deck
             </div>
-          </article>
+            <div class="card-desc">
+              Support de présentation type slides pour réunions, think tanks, rencontres 2027.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_pitch_deck.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_projet_de_loi.html">
+            <div class="card-title">
+              📜 Projet de loi
+            </div>
+            <div class="card-desc">
+              Ébauche de projet de loi créant le VRA comme dispositif civil d’engagement 60+.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_projet_de_loi.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Communication & médias -->
-      <section class="section" id="section-communication">
-        <div class="section-header">
-          <div class="section-title">
-            <span class="marker"></span>
-            Communication & médias
-          </div>
-          <div class="section-subtitle">
-            Outils prêts à l’emploi pour présenter le VRA à des publics variés : présentations, discours, médias.
-          </div>
-        </div>
+      <!-- Section 4 : BVRA -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">👥</span>
+          <span>Pour les pionniers BVRA</span>
+        </h2>
+        <p class="section-subtitle">
+          Ressources destinées aux 3–5 bénévoles fondateurs qui porteront le projet VRA dans les prochains mois.
+        </p>
         <div class="grid">
-          <!-- Pitch deck -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Pitch
+          <div class="card" data-file="profil_bvra.html">
+            <div class="card-title">
+              👥 Profil des BVRA
+              <span class="card-badge">Nouveau</span>
             </div>
-            <div class="doc-title">Structure de pitch deck</div>
-            <div class="doc-desc">
-              Trame d’une présentation PowerPoint en 10–12 slides : constat, opportunité, dispositif, missions, impact, garde-fous.
+            <div class="card-desc">
+              Rôle, mission, profil et engagement des BVRA (Bénévoles du VRA) – noyau fondateur du mouvement.
             </div>
-            <div class="doc-meta">
-              <span>📊 Pitch 10–12 slides</span>
-              <span>👔 Pour réunions & rencontres</span>
+            <div class="card-actions">
+              <a class="card-link" href="profil_bvra.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_pitch_deck.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir le pitch
-              </a>
-              <button class="copy-btn" data-file="vra_pitch_deck.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
 
-          <!-- Discours politique long -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Discours
+          <div class="card" data-file="vra_feuille_de_route.html">
+            <div class="card-title">
+              🧭 Feuille de route BVRA
             </div>
-            <div class="doc-title">Discours politique de présentation</div>
-            <div class="doc-desc">
-              Discours pour un hémicycle, une grande réunion ou un événement officiel : narration complète du “pourquoi” et du “comment” du VRA.
+            <div class="card-desc">
+              Vision d’amorçage, tâches prioritaires, étapes pour faire exister le VRA dans la vraie vie.
             </div>
-            <div class="doc-meta">
-              <span>🕒 ~10 min</span>
-              <span>🏛️ Ton institutionnel</span>
+            <div class="card-actions">
+              <a class="card-link" href="vra_feuille_de_route.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_discours_politique.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir le discours
-              </a>
-              <button class="copy-btn" data-file="vra_discours_politique.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
-
-          <!-- Discours médias TV -->
-          <article class="doc-card">
-            <div class="doc-tag">
-              <span class="dot"></span> Médias
-            </div>
-            <div class="doc-title">Discours “10 minutes médias TV”</div>
-            <div class="doc-desc">
-              Version épurée, directe et accessible pour une intervention télé ou radio : pédagogie, simplicité, impact.
-            </div>
-            <div class="doc-meta">
-              <span>📺 Format interview</span>
-              <span>🎙️ Langage grand public</span>
-            </div>
-            <div class="doc-actions">
-              <a class="open-link" href="vra_discours_medias_tv.html" target="_blank" rel="noopener noreferrer">
-                Ouvrir le discours médias
-              </a>
-              <button class="copy-btn" data-file="vra_discours_medias_tv.html">
-                <span class="status-dot"></span>
-                Copier
-              </button>
-            </div>
-          </article>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      Centre de ressources du Volontariat de Retraite Active – version d’amorçage.  
-      Cette page indexe les documents de travail pour faciliter les échanges, les révisions et les expérimentations.
+      Site de travail du <strong>Volontariat de Retraite Active</strong> – version d’amorçage.<br/>
+      Dépôt GitHub : <a href="https://github.com/Djamchid/vra" target="_blank">github.com/Djamchid/vra</a>
     </footer>
   </div>
 
-  <div class="copy-toast" id="copy-toast">
-    <span>✅ Contenu copié dans le presse-papiers</span>
-  </div>
-
   <script>
-    (function () {
-      const buttons = document.querySelectorAll('.copy-btn');
-      const toast = document.getElementById('copy-toast');
-      let toastTimeout = null;
-
-      function showToast(message, isError = false) {
-        if (!toast) return;
-        toast.textContent = message;
-        toast.classList.add('show');
-        if (isError) {
-          toast.style.backgroundColor = '#b91c1c';
-        } else {
-          toast.style.backgroundColor = '#111827';
-        }
-        clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => {
-          toast.classList.remove('show');
-        }, 2400);
+    // Copie le contenu HTML brut de chaque fichier dans le presse-papiers
+    async function copyFileContent(fileName, button) {
+      try {
+        const response = await fetch(fileName);
+        const text = await response.text();
+        await navigator.clipboard.writeText(text);
+        button.classList.add("copied");
+        button.textContent = "✅ Copié";
+        setTimeout(() => {
+          button.classList.remove("copied");
+          button.textContent = "📋 Copier le contenu";
+        }, 2000);
+      } catch (e) {
+        console.error(e);
+        alert("Impossible de copier le contenu. Essayez d’ouvrir le document puis de copier manuellement.");
       }
+    }
 
-      async function copyFileContent(filePath, button) {
-        if (!navigator.clipboard) {
-          showToast("✋ Le presse-papiers n'est pas disponible dans ce navigateur.", true);
-          return;
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".card").forEach(card => {
+        const file = card.getAttribute("data-file");
+        const btn = card.querySelector("button.card-copy");
+        if (file && btn) {
+          btn.addEventListener("click", () => copyFileContent(file, btn));
         }
-
-        const statusDot = button.querySelector('.status-dot');
-        button.classList.add('copying');
-        button.disabled = true;
-        const originalText = button.textContent.trim();
-        button.lastChild.nodeValue = ' Copie…';
-
-        try {
-          const response = await fetch(filePath, { cache: 'no-cache' });
-          if (!response.ok) {
-            throw new Error('HTTP ' + response.status);
-          }
-          const text = await response.text();
-          await navigator.clipboard.writeText(text);
-
-          button.classList.remove('copying');
-          button.classList.add('success');
-          if (statusDot) statusDot.style.backgroundColor = '#16a34a';
-          button.lastChild.nodeValue = ' Copié';
-          showToast('✅ Contenu copié dans le presse-papiers');
-        } catch (err) {
-          console.error('Erreur de copie :', err);
-          button.classList.remove('copying');
-          button.classList.add('error');
-          if (statusDot) statusDot.style.backgroundColor = '#dc2626';
-          button.lastChild.nodeValue = ' Erreur';
-          showToast('⚠️ Impossible de copier le contenu.', true);
-        } finally {
-          setTimeout(() => {
-            button.classList.remove('success', 'error');
-            if (statusDot) statusDot.style.backgroundColor = '#9ca3af';
-            button.lastChild.nodeValue = ' Copier';
-            button.disabled = false;
-          }, 1800);
-        }
-      }
-
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const filePath = btn.getAttribute('data-file');
-          if (!filePath) {
-            showToast('⚠️ Aucun fichier associé à ce bouton.', true);
-            return;
-          }
-          copyFileContent(filePath, btn);
-        });
       });
-    })();
+    });
   </script>
 </body>
 </html>
