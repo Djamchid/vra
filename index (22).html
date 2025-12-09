@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>VRA – Volontariat de Retraite Active</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #0f172a;
+      --accent: #1d4ed8;
+      --accent-soft: #e0ebff;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 24px;
+      padding: 26px 24px 22px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      margin-bottom: 10px;
+    }
+    .tagline span.icon { font-size: 0.95rem; }
+    h1 {
+      margin: 0;
+      font-size: 2.1rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      max-width: 720px;
+      color: #e5edff;
+    }
+    .header-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.2);
+      color: #e5edff;
+      font-size: 0.86rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .btn.primary {
+      background: #fbbf24;
+      color: #111827;
+      border-color: #facc15;
+      font-weight: 600;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.28);
+    }
+    .btn.primary:hover {
+      background: #facc15;
+    }
+
+    main {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    h2.section-title {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h2.section-title span.emoji { font-size: 1.2rem; }
+    .section-subtitle {
+      margin: 0 0 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      header { padding: 22px 18px 18px; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-badge {
+      font-size: 0.72rem;
+      padding: 1px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+    }
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 2px 0 6px;
+    }
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .card-actions a.card-link,
+    .card-actions button.card-copy {
+      flex: 1;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 5px 8px;
+      background: #f9fafb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #111827;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+    .card-actions a.card-link:hover,
+    .card-actions button.card-copy:hover {
+      background: #eef2ff;
+      transform: translateY(-0.5px);
+    }
+    .card-actions button.card-copy.copied {
+      background: #dcfce7;
+      border-color: #16a34a;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-align: center;
+    }
+    footer a {
+      color: #1d4ed8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tagline">
+        <span class="icon">🛡️</span>
+        <span>Volontariat de Retraite Active – VRA</span>
+      </div>
+      <h1>Mobiliser les 60&nbsp;+ pour la résilience française</h1>
+      <p class="subtitle">
+        Le Volontariat de Retraite Active (VRA) propose un engagement civil de 12 à 24 mois
+        pour les 60&nbsp;+ ans, au service des communes, des services essentiels et de la
+        préparation aux crises, en échange de trimestres de retraite validés.
+      </p>
+      <div class="header-actions">
+        <a class="btn primary" href="vra_livret_grand_public.html">📘 Comprendre le VRA (livret grand public)</a>
+        <a class="btn" href="vra_feuille_de_route.html">🧭 Feuille de route du projet</a>
+        <a class="btn" href="profil_bvra.html">👥 Devenir BVRA (pionnier)</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section 1 : Pour tous les citoyens -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">👨‍👩‍👧‍👦</span>
+          <span>Pour les citoyens et proches</span>
+        </h2>
+        <p class="section-subtitle">
+          Documents pour comprendre l’idée, répondre aux questions et partager autour de soi.
+        </p>
+        <div class="grid">
+          <div class="card" data-file="vra_livret_grand_public.html">
+            <div class="card-title">
+              📘 Livret grand public
+              <span class="card-badge">Introduction</span>
+            </div>
+            <div class="card-desc">
+              Présentation simple du VRA, de ses objectifs et de son fonctionnement, à destination du grand public.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_livret_grand_public.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_faq_citoyenne.html">
+            <div class="card-title">
+              ❓ FAQ citoyenne
+            </div>
+            <div class="card-desc">
+              Réponses aux questions les plus fréquentes sur le VRA&nbsp;: qui, quoi, comment, pourquoi.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_faq_citoyenne.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_feuille_de_route.html">
+            <div class="card-title">
+              🧭 Feuille de route
+            </div>
+            <div class="card-desc">
+              Où en est le projet aujourd’hui, quelles sont les prochaines étapes, comment contribuer.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_feuille_de_route.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2 : Décideurs publics / 2027 / SGDSN -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">🏛️</span>
+          <span>Pour les décideurs publics &amp; 2027</span>
+        </h2>
+        <p class="section-subtitle">
+          Documents pour cabinets ministériels, parlementaires, collectivités, SGDSN, IHEDN, équipes 2027.
+        </p>
+        <div class="grid">
+          <div class="card" data-file="vra_fiche_cabinet.html">
+            <div class="card-title">
+              📄 Fiche cabinet
+              <span class="card-badge">Synthèse</span>
+            </div>
+            <div class="card-desc">
+              Vue d’ensemble rapide pour cabinets ministériels, préfets, directions d’administration centrale.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_fiche_cabinet.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_note_strategique.html">
+            <div class="card-title">
+              🧠 Note stratégique
+            </div>
+            <div class="card-desc">
+              Positionnement du VRA dans le contexte des menaces de haute intensité et de la crise des retraites.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_note_strategique.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_argumentaire_parlementaire.html">
+            <div class="card-title">
+              🏛️ Argumentaire parlementaire
+            </div>
+            <div class="card-desc">
+              Argumentaire prêt-à-l’emploi pour les parlementaires et leurs collaborateurs.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_argumentaire_parlementaire.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="budget.html">
+            <div class="card-title">
+              💶 Budget du VRA
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Évaluation budgétaire du VRA (coûts RH, encadrement, scénarios d’ampleur).
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="budget.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="aubaine.html">
+            <div class="card-title">
+              🧩 Doctrine anti-effet d’aubaine
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Garde-fous, checklist terrain et doctrine pour éviter toute substitution à l’emploi salarié.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="aubaine.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="positionnement.html">
+            <div class="card-title">
+              🧭 Positionnement du VRA
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Comparaison avec les dispositifs existants : Service Civique, réserves, bénévolat, chômage, retraite.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="positionnement.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 : Médias & politiques -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">📺</span>
+          <span>Pour médias &amp; responsables politiques</span>
+        </h2>
+        <p class="section-subtitle">
+          Outils narratifs prêts à l’emploi pour interviews, plateaux TV, tribunes, débats publics.
+        </p>
+        <div class="grid">
+          <div class="card" data-file="vra_discours_politique.html">
+            <div class="card-title">
+              🎤 Discours politique
+            </div>
+            <div class="card-desc">
+              Trame de discours pour un responsable politique présentant le VRA comme projet national.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_discours_politique.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_discours_medias_tv.html">
+            <div class="card-title">
+              📺 Discours médias / TV
+            </div>
+            <div class="card-desc">
+              Version resserrée pour intervention média, plateau TV, radio, podcast.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_discours_medias_tv.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_pitch_deck.html">
+            <div class="card-title">
+              📊 Pitch deck
+            </div>
+            <div class="card-desc">
+              Support de présentation type slides pour réunions, think tanks, rencontres 2027.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_pitch_deck.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_projet_de_loi.html">
+            <div class="card-title">
+              📜 Projet de loi
+            </div>
+            <div class="card-desc">
+              Ébauche de projet de loi créant le VRA comme dispositif civil d’engagement 60+.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_projet_de_loi.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 : BVRA -->
+      <section>
+        <h2 class="section-title">
+          <span class="emoji">👥</span>
+          <span>Pour les pionniers BVRA</span>
+        </h2>
+        <p class="section-subtitle">
+          Ressources destinées aux 3–5 bénévoles fondateurs qui porteront le projet VRA dans les prochains mois.
+        </p>
+        <div class="grid">
+          <div class="card" data-file="profil_bvra.html">
+            <div class="card-title">
+              👥 Profil des BVRA
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Rôle, mission, profil et engagement des BVRA (Bénévoles du VRA) – noyau fondateur du mouvement.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="profil_bvra.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+
+          <div class="card" data-file="vra_feuille_de_route.html">
+            <div class="card-title">
+              🧭 Feuille de route BVRA
+            </div>
+            <div class="card-desc">
+              Vision d’amorçage, tâches prioritaires, étapes pour faire exister le VRA dans la vraie vie.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="vra_feuille_de_route.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Site de travail du <strong>Volontariat de Retraite Active</strong> – version d’amorçage.<br/>
+      Dépôt GitHub : <a href="https://github.com/Djamchid/vra" target="_blank">github.com/Djamchid/vra</a>
+    </footer>
+  </div>
+
+  <script>
+    async function copyFileContent(fileName, button) {
+      try {
+        const response = await fetch(fileName);
+        const text = await response.text();
+        await navigator.clipboard.writeText(text);
+        button.classList.add("copied");
+        button.textContent = "✅ Copié";
+        setTimeout(() => {
+          button.classList.remove("copied");
+          button.textContent = "📋 Copier le contenu";
+        }, 2000);
+      } catch (e) {
+        console.error(e);
+        alert("Impossible de copier le contenu. Essayez d’ouvrir le document puis de copier manuellement.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".card").forEach(card => {
+        const file = card.getAttribute("data-file");
+        const btn = card.querySelector("button.card-copy");
+        if (file && btn) {
+          btn.addEventListener("click", () => copyFileContent(file, btn));
+        }
+      });
+    });
+  </script>
+</body>
+</html>

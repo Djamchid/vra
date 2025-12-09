@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>VRA – Positionnement dans l'écosystème</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --fg: #111827;
+      --accent: #1d4ed8;
+      --accent-soft: #e0ebff;
+      --border: #e5e7eb;
+      --card-bg: #ffffff;
+      --muted: #4b5563;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0ecff 0, #f5f7fb 40%, #f9fafb 100%);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 980px;
+      margin: 40px auto 48px;
+      padding: 0 16px 32px;
+    }
+    header {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af);
+      color: #fff;
+      border-radius: 20px;
+      padding: 26px 24px 22px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0%, rgba(255,255,255,0.22), transparent 55%);
+      pointer-events: none;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.35);
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: -0.03em;
+    }
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      max-width: 720px;
+      color: #e5edff;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+      margin-top: 22px;
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    p {
+      margin: 6px 0 10px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+    ul {
+      margin: 6px 0 8px 1.1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .highlight {
+      background: #eef2ff;
+      border-radius: 12px;
+      padding: 10px 11px 9px;
+      font-size: 0.88rem;
+      margin-top: 10px;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 6px 8px;
+      text-align: center;
+    }
+    th {
+      background: #e5edff;
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+    td:first-child, th:first-child {
+      text-align: left;
+      white-space: nowrap;
+    }
+    .pill {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: #0f766e;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="tagline">🧭 Positionnement du VRA</div>
+      <h1>Le VRA dans l'écosystème français de l'engagement</h1>
+      <p class="subtitle">
+        Le Volontariat de Retraite Active ne remplace aucun dispositif existant. Il occupe une
+        case aujourd'hui vide&nbsp;: celle de l'engagement civique structuré des seniors, reconnu
+        par des droits retraite.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>1. Ce qui existe déjà</h2>
+      <p>
+        La France dispose déjà de dispositifs solides (bénévolat, Service Civique, réserves,
+        chômage, retraite). Le VRA s'y ajoute, sans s'y substituer.
+      </p>
+      <ul>
+        <li><strong>Bénévolat associatif</strong> : libre, utile, mais sans reconnaissance retraite.</li>
+        <li><strong>Service Civique</strong> : très bon dispositif jeunesse, fermé aux seniors.</li>
+        <li><strong>Réserves (armées, sécurité civile)</strong> : engagement spécialisé, quotas limités.</li>
+        <li><strong>Chômage / préretraite</strong> : protection individuelle, pas projet civique.</li>
+        <li><strong>Retraite classique</strong> : sortie du système d'utilité structurée.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2. Tableau comparatif – où se situe le VRA ?</h2>
+      <p>
+        Ce tableau montre en un coup d'œil ce que fait chaque dispositif et la case aujourd'hui
+        vide que vient occuper le VRA.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Critère</th>
+            <th>Bénévolat</th>
+            <th>Service Civique</th>
+            <th>Réserves</th>
+            <th>Chômage</th>
+            <th>Retraite</th>
+            <th>VRA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ouvert massivement aux 60&nbsp;+</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Engagement structuré par l'État</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Orientation résilience / crises</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Engagement long (12–24 mois)</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Validation spécifique de trimestres</td>
+            <td>✗</td>
+            <td>partiel</td>
+            <td>indirecte</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Statut juridique dédié</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td><strong>✓</strong></td>
+          </tr>
+          <tr>
+            <td>Coordination État / territoires</td>
+            <td>✗</td>
+            <td>✓</td>
+            <td>✓</td>
+            <td>✗</td>
+            <td>✗</td>
+            <td><strong>✓</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight">
+        <strong>Lecture rapide :</strong> le VRA ne duplique pas l'existant. Il crée une
+        brique manquante&nbsp;: un engagement civil structuré des 60&nbsp;+, orienté résilience,
+        avec validation de trimestres.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Le point clé : les trimestres de retraite</h2>
+      <p>
+        Aujourd'hui, les trimestres sont validés principalement en cas d'emploi, de chômage,
+        de maladie, d'invalidité ou via certains dispositifs jeunesse.
+      </p>
+      <p>
+        Le VRA ajoute une logique nouvelle&nbsp;: des trimestres validés en échange direct
+        d'une mission civique senior structurée, utile à la résilience nationale.
+      </p>
+      <div class="highlight">
+        <span class="pill">Idée forte</span>
+        <p>
+          Le VRA propose le premier mécanisme français où l'engagement senior devient un
+          équivalent civique du travail pour la retraite.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. Position officielle du VRA</h2>
+      <p>
+        Le VRA ne retire rien à aucun dispositif existant. Au contraire, il crée des ponts
+        et des synergies avec :
+      </p>
+      <ul>
+        <li>les collectivités (mairies, intercommunalités, départements, régions),</li>
+        <li>les services de l'État (préfectures, SGDSN, Santé, Intérieur, Défense),</li>
+        <li>les associations et fondations déjà actives sur le terrain.</li>
+      </ul>
+      <div class="highlight">
+        <strong>En une phrase :</strong><br />
+        Le VRA complète l'architecture française de l'engagement en créant le chaînon manquant&nbsp;:
+        l'engagement civique structuré des seniors au service de la résilience nationale, reconnu
+        par des droits retraite.
+      </div>
+    </section>
+  </div>
+</body>
+</html>
