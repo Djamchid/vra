@@ -363,6 +363,20 @@
               <button class="card-copy" type="button">📋 Copier le contenu</button>
             </div>
           </div>
+
+          <div class="card" data-file="positionnement.html">
+            <div class="card-title">
+              🧭 Positionnement du VRA
+              <span class="card-badge">Nouveau</span>
+            </div>
+            <div class="card-desc">
+              Comparaison avec les dispositifs existants : Service Civique, réserves, bénévolat, chômage, retraite.
+            </div>
+            <div class="card-actions">
+              <a class="card-link" href="positionnement.html" target="_blank">Ouvrir</a>
+              <button class="card-copy" type="button">📋 Copier le contenu</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -477,7 +491,6 @@
   </div>
 
   <script>
-    // Copie le contenu HTML brut de chaque fichier dans le presse-papiers
     async function copyFileContent(fileName, button) {
       try {
         const response = await fetch(fileName);
